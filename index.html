@@ -1,0 +1,1927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polk Valley Habitat Design — Native Landscaping &amp; Habitat Restoration</title>
+    <meta name="description" content="Polk Valley Habitat Design creates beautiful, place-rooted landscapes through native planting, invasive removal, and habitat restoration. Serving the greater Lehigh Valley area.">
+    <meta property="og:title" content="Polk Valley Habitat Design">
+    <meta property="og:description" content="Beautiful, place-rooted landscapes through native planting, invasive removal, and habitat restoration.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://polkvalleyhabitat.com">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* ========================================
+           CSS RESET & VARIABLES
+           ======================================== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Earth tone palette */
+            --stone: #3d3a36;
+            --stone-light: #5a554e;
+            --warm-cream: #f5f0e8;
+            --warm-cream-dark: #ebe4d8;
+            --parchment: #faf7f2;
+            --sage: #7a8c6e;
+            --sage-dark: #5e6d54;
+            --sage-light: #94a685;
+            --forest: #3a4a32;
+            --tan: #c4a97d;
+            --tan-light: #d4bf9a;
+            --tan-dark: #a8905f;
+            --earth: #8b7355;
+            --text-primary: #2c2a26;
+            --text-secondary: #5a554e;
+            --text-light: #7d7770;
+            --white: #ffffff;
+            --border: rgba(61, 58, 54, 0.1);
+            --border-dark: rgba(61, 58, 54, 0.2);
+
+            /* Typography */
+            --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+            /* Spacing */
+            --section-padding: 120px 0;
+            --container-width: 1140px;
+            --container-padding: 0 32px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--text-primary);
+            background-color: var(--parchment);
+            line-height: 1.7;
+            font-size: 16px;
+            font-weight: 400;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: var(--container-padding);
+        }
+
+        /* ========================================
+           NAVIGATION
+           ======================================== */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 0 32px;
+            transition: background-color 0.4s ease, box-shadow 0.4s ease, padding 0.4s ease;
+        }
+
+        .nav.scrolled {
+            background-color: rgba(250, 247, 242, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 1px 0 var(--border);
+        }
+
+        .nav-inner {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 0;
+            transition: padding 0.4s ease;
+        }
+
+        .nav.scrolled .nav-inner {
+            padding: 16px 0;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .nav-logo-trees-light { display: block; transition: opacity 0.4s ease; }
+        .nav-logo-trees-dark { display: block; position: absolute; left: 0; top: 0; opacity: 0; transition: opacity 0.4s ease; }
+        .nav-logo-svg-wrap { position: relative; width: 42px; height: 30px; flex-shrink: 0; }
+        .nav.scrolled .nav-logo-trees-light { opacity: 0; }
+        .nav.scrolled .nav-logo-trees-dark { opacity: 1; }
+
+        .nav-logo-divider {
+            width: 1px;
+            height: 28px;
+            background: rgba(245, 240, 232, 0.3);
+            transition: background 0.4s ease;
+        }
+
+        .nav.scrolled .nav-logo-divider {
+            background: rgba(61, 58, 54, 0.15);
+        }
+
+        .nav-logo-text {
+            font-family: var(--font-serif);
+            font-size: 17px;
+            font-weight: 500;
+            color: var(--warm-cream);
+            letter-spacing: -0.01em;
+            line-height: 1.1;
+            transition: color 0.4s ease;
+        }
+
+        .nav.scrolled .nav-logo-text {
+            color: var(--forest);
+        }
+
+        .nav-logo-sub {
+            font-family: var(--font-sans);
+            font-size: 9px;
+            font-weight: 500;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: rgba(245, 240, 232, 0.5);
+            margin-top: 1px;
+            transition: color 0.4s ease;
+        }
+
+        .nav.scrolled .nav-logo-sub {
+            color: var(--text-light);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 400;
+            color: rgba(245, 240, 232, 0.75);
+            letter-spacing: 0.02em;
+            transition: color 0.4s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--warm-cream);
+        }
+
+        .nav.scrolled .nav-links a {
+            color: var(--text-secondary);
+        }
+
+        .nav.scrolled .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-cta {
+            font-size: 13px !important;
+            font-weight: 500 !important;
+            color: var(--white) !important;
+            background-color: rgba(245, 240, 232, 0.15);
+            border: 1px solid rgba(245, 240, 232, 0.3);
+            padding: 10px 24px;
+            border-radius: 6px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            transition: background-color 0.4s ease, border-color 0.4s ease, transform 0.2s ease;
+        }
+
+        .nav-cta:hover {
+            background-color: rgba(245, 240, 232, 0.25);
+            border-color: rgba(245, 240, 232, 0.5);
+            transform: translateY(-1px);
+        }
+
+        .nav.scrolled .nav-cta {
+            background-color: var(--sage-dark);
+            border-color: var(--sage-dark);
+        }
+
+        .nav.scrolled .nav-cta:hover {
+            background-color: var(--forest);
+            border-color: var(--forest);
+        }
+
+        /* Mobile menu */
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .nav-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: var(--warm-cream);
+            transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.4s ease;
+        }
+
+        .nav.scrolled .nav-toggle span {
+            background-color: var(--stone);
+        }
+
+        /* ========================================
+           HERO SECTION
+           ======================================== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background-color: var(--forest);
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: var(--forest);
+            z-index: 0;
+        }
+
+        .hero-bg img {
+            position: absolute;
+            right: -8%;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 110%;
+            width: auto;
+            display: block;
+        }
+
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                /* Main left coverage — large soft wash */
+                radial-gradient(ellipse 65% 120% at 8% 50%,
+                    rgba(58, 74, 50, 1) 0%,
+                    rgba(58, 74, 50, 0.95) 40%,
+                    rgba(58, 74, 50, 0.6) 65%,
+                    rgba(58, 74, 50, 0) 100%
+                ),
+                /* Bottom-left corner catch */
+                radial-gradient(ellipse 55% 80% at 20% 95%,
+                    rgba(58, 74, 50, 1) 0%,
+                    rgba(58, 74, 50, 0.8) 35%,
+                    rgba(58, 74, 50, 0) 70%
+                ),
+                /* Top-left corner catch */
+                radial-gradient(ellipse 45% 70% at 15% 5%,
+                    rgba(58, 74, 50, 1) 0%,
+                    rgba(58, 74, 50, 0.7) 40%,
+                    rgba(58, 74, 50, 0) 75%
+                ),
+                /* Mid-left soft blend */
+                radial-gradient(ellipse 40% 50% at 30% 55%,
+                    rgba(58, 74, 50, 0.7) 0%,
+                    rgba(58, 74, 50, 0) 100%
+                );
+            z-index: 2;
+        }
+
+        /* Botanical SVG decoration (removed) */
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: var(--container-width);
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 32px;
+            padding-top: 120px;
+        }
+
+        .hero-content h1,
+        .hero-content .hero-tag,
+        .hero-content .hero-subtitle,
+        .hero-content .hero-actions {
+            max-width: 540px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--sage-light);
+            margin-bottom: 28px;
+            position: relative;
+            padding-left: 32px;
+        }
+
+        .hero-tag::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 20px;
+            height: 1px;
+            background-color: var(--sage-light);
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(42px, 5.5vw, 72px);
+            font-weight: 400;
+            line-height: 1.12;
+            color: var(--warm-cream);
+            max-width: 740px;
+            margin-bottom: 28px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--tan-light);
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 1.7;
+            color: rgba(245, 240, 232, 0.7);
+            max-width: 520px;
+            margin-bottom: 48px;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--forest);
+            background-color: var(--tan-light);
+            padding: 14px 32px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--tan);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(245, 240, 232, 0.8);
+            background: transparent;
+            padding: 14px 32px;
+            border-radius: 6px;
+            border: 1px solid rgba(245, 240, 232, 0.25);
+            cursor: pointer;
+            transition: border-color 0.3s ease, color 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: rgba(245, 240, 232, 0.5);
+            color: rgba(245, 240, 232, 1);
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: rgba(245, 240, 232, 0.4);
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .hero-scroll .scroll-line {
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, rgba(245, 240, 232, 0.3), transparent);
+            animation: scrollPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes scrollPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.8; }
+        }
+
+        /* ========================================
+           ABOUT / STORY SECTION
+           ======================================== */
+        .about {
+            padding: var(--section-padding);
+            background-color: var(--forest);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 70% 40%, rgba(122, 140, 110, 0.12), transparent 70%);
+        }
+
+        .about-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+        }
+
+        .about-image-wrapper {
+            position: relative;
+        }
+
+        .about-image {
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            background-color: rgba(245, 240, 232, 0.08);
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .about-image-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(145deg, rgba(245, 240, 232, 0.06), rgba(245, 240, 232, 0.02));
+            position: relative;
+        }
+
+        .about-image-placeholder svg {
+            width: 80px;
+            height: 80px;
+            opacity: 0.15;
+            color: var(--warm-cream) !important;
+        }
+
+        .about-image-accent {
+            display: none;
+        }
+
+        .section-tag {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--sage);
+            margin-bottom: 20px;
+        }
+
+        .section-tag::before {
+            content: '';
+            display: block;
+            width: 16px;
+            height: 22px;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='60 30 200 280' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M150 250 L170 250 L170 390 L150 390 Z' fill='%237a8c6e'/%3E%3Cpath d='M160 30 C152 54,141 68,126 82 C138 80,149 75,160 64 C171 75,182 80,194 82 C179 68,168 54,160 30Z' fill='%237a8c6e'/%3E%3Cpath d='M160 78 C145 104,122 120,96 136 C116 137,140 131,160 114 C177 129,205 139,228 138 C201 121,178 104,160 78Z' fill='%237a8c6e'/%3E%3Cpath d='M160 118 C142 146,112 166,76 186 C104 187,135 178,160 158 C184 178,220 191,252 188 C217 168,187 147,160 118Z' fill='%237a8c6e'/%3E%3Cpath d='M160 162 C141 194,103 220,56 244 C92 244,130 233,160 211 C186 234,232 248,272 245 C228 221,191 195,160 162Z' fill='%237a8c6e'/%3E%3Cpath d='M160 210 C142 244,98 274,36 304 C84 303,126 289,160 263 C188 289,242 306,290 301 C238 274,194 244,160 210Z' fill='%237a8c6e'/%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.7;
+        }
+
+        .about-text .section-tag {
+            color: var(--sage-light);
+        }
+
+        .about-text .section-tag::before {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='60 30 200 280' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M150 250 L170 250 L170 390 L150 390 Z' fill='%2394a685'/%3E%3Cpath d='M160 30 C152 54,141 68,126 82 C138 80,149 75,160 64 C171 75,182 80,194 82 C179 68,168 54,160 30Z' fill='%2394a685'/%3E%3Cpath d='M160 78 C145 104,122 120,96 136 C116 137,140 131,160 114 C177 129,205 139,228 138 C201 121,178 104,160 78Z' fill='%2394a685'/%3E%3Cpath d='M160 118 C142 146,112 166,76 186 C104 187,135 178,160 158 C184 178,220 191,252 188 C217 168,187 147,160 118Z' fill='%2394a685'/%3E%3Cpath d='M160 162 C141 194,103 220,56 244 C92 244,130 233,160 211 C186 234,232 248,272 245 C228 221,191 195,160 162Z' fill='%2394a685'/%3E%3Cpath d='M160 210 C142 244,98 274,36 304 C84 303,126 289,160 263 C188 289,242 306,290 301 C238 274,194 244,160 210Z' fill='%2394a685'/%3E%3C/svg%3E");
+        }
+
+        .about-text h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(32px, 3.5vw, 44px);
+            font-weight: 400;
+            line-height: 1.2;
+            color: var(--warm-cream);
+            margin-bottom: 24px;
+            letter-spacing: -0.01em;
+        }
+
+        .about-text h2 em {
+            font-style: italic;
+            color: var(--tan-light);
+        }
+
+        .about-text p {
+            color: rgba(245, 240, 232, 0.6);
+            margin-bottom: 16px;
+            font-size: 15.5px;
+            line-height: 1.75;
+        }
+
+        .about-text p:last-of-type {
+            margin-bottom: 32px;
+        }
+
+        .about-detail {
+            display: flex;
+            gap: 40px;
+            padding-top: 28px;
+            border-top: 1px solid rgba(245, 240, 232, 0.1);
+        }
+
+        .about-detail-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .about-detail-item .label {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(245, 240, 232, 0.35);
+        }
+
+        .about-detail-item .value {
+            font-family: var(--font-serif);
+            font-size: 18px;
+            color: var(--warm-cream);
+        }
+
+        /* ========================================
+           SERVICES SECTION
+           ======================================== */
+        .services {
+            padding: var(--section-padding);
+            background-color: var(--warm-cream);
+        }
+
+        .services-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 72px;
+        }
+
+        .services-header .section-tag {
+            /* inherits shared .section-tag */
+        }
+
+        .services-header h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(32px, 3.5vw, 44px);
+            font-weight: 400;
+            line-height: 1.2;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
+        }
+
+        .services-header p {
+            color: var(--text-secondary);
+            font-size: 15.5px;
+            line-height: 1.7;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .service-card {
+            background-color: var(--parchment);
+            border-radius: 10px;
+            padding: 40px 32px;
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(61, 58, 54, 0.08);
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--warm-cream);
+            border-radius: 10px;
+            margin-bottom: 24px;
+            color: var(--sage-dark);
+        }
+
+        .service-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .service-card h3 {
+            font-family: var(--font-serif);
+            font-size: 22px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            font-size: 14.5px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* ========================================
+           PROCESS SECTION
+           ======================================== */
+        .process {
+            padding: var(--section-padding);
+            background-color: var(--parchment);
+        }
+
+        .process-header {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto 72px;
+        }
+
+        .process-header .section-tag {
+            /* inherits shared .section-tag */
+        }
+
+        .process-header h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(32px, 3.5vw, 44px);
+            font-weight: 400;
+            line-height: 1.2;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
+        }
+
+        .process-header p {
+            color: var(--text-secondary);
+            font-size: 15.5px;
+            line-height: 1.7;
+        }
+
+        .process-blocks {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .process-block {
+            background: var(--warm-cream);
+            border-radius: 12px;
+            padding: 48px 44px;
+            border: 1px solid var(--border);
+        }
+
+        .process-block-top {
+            display: flex;
+            align-items: flex-start;
+            gap: 28px;
+        }
+
+        .process-num {
+            font-family: var(--font-serif);
+            font-size: 52px;
+            font-weight: 400;
+            line-height: 1;
+            color: var(--sage-light);
+            opacity: 0.4;
+            flex-shrink: 0;
+            width: 48px;
+        }
+
+        .process-block-text {
+            flex: 1;
+        }
+
+        .process-block h3 {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .process-block p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.75;
+        }
+
+        /* Featured step (step 2 with before/after) */
+        .process-block--featured {
+            background: var(--forest);
+            border-color: transparent;
+        }
+
+        .process-block--featured .process-num {
+            color: var(--tan-light);
+            opacity: 0.3;
+        }
+
+        .process-block--featured h3 {
+            color: var(--warm-cream);
+        }
+
+        .process-block--featured p {
+            color: rgba(245, 240, 232, 0.65);
+        }
+
+        .process-before-after {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 28px;
+        }
+
+        .process-ba-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .process-ba-item img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .process-ba-label {
+            position: absolute;
+            bottom: 12px;
+            left: 12px;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--white);
+            background: rgba(44, 42, 38, 0.55);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 6px 12px;
+            border-radius: 4px;
+        }
+
+        .process-ba-caption {
+            grid-column: 1 / -1;
+            font-size: 13px;
+            font-style: italic;
+            color: rgba(245, 240, 232, 0.4);
+            line-height: 1.6;
+            padding-top: 4px;
+        }
+
+        .process-summary {
+            max-width: 640px;
+            margin: 56px auto 0;
+            text-align: center;
+        }
+
+        .process-summary p {
+            font-family: var(--font-serif);
+            font-size: 19px;
+            font-weight: 400;
+            font-style: italic;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .process-block {
+                padding: 32px 24px;
+            }
+
+            .process-block-top {
+                gap: 20px;
+            }
+
+            .process-num {
+                font-size: 40px;
+                width: 36px;
+            }
+
+            .process-block h3 {
+                font-size: 21px;
+            }
+
+            .process-before-after {
+                grid-template-columns: 1fr;
+            }
+
+            .process-ba-item img {
+                height: 200px;
+            }
+
+            .process-summary {
+                margin-top: 40px;
+            }
+
+            .process-summary p {
+                font-size: 17px;
+            }
+        }
+
+        /* ========================================
+           ETHOS / PHILOSOPHY STRIP
+           ======================================== */
+        .ethos {
+            padding: 80px 0;
+            background-color: var(--forest);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ethos::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 30% 50%, rgba(122, 140, 110, 0.15), transparent 70%);
+        }
+
+        .ethos-inner {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .ethos blockquote {
+            font-family: var(--font-serif);
+            font-size: clamp(24px, 3vw, 32px);
+            font-weight: 400;
+            font-style: italic;
+            line-height: 1.45;
+            color: var(--warm-cream);
+            margin-bottom: 20px;
+        }
+
+        .ethos cite {
+            font-family: var(--font-sans);
+            font-style: normal;
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 0.06em;
+            color: rgba(245, 240, 232, 0.5);
+        }
+
+        /* ========================================
+           CONTACT SECTION
+           ======================================== */
+        .contact {
+            padding: var(--section-padding);
+            background-color: var(--parchment);
+        }
+
+        .contact-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .contact-info .section-tag {
+            /* inherits shared .section-tag */
+        }
+
+        .contact-info h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(32px, 3.5vw, 44px);
+            font-weight: 400;
+            line-height: 1.2;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
+        }
+
+        .contact-info > p {
+            color: var(--text-secondary);
+            font-size: 15.5px;
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .contact-detail-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--warm-cream);
+            border-radius: 8px;
+            flex-shrink: 0;
+            color: var(--sage-dark);
+        }
+
+        .contact-detail-icon svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .contact-detail-text .label {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-bottom: 2px;
+        }
+
+        .contact-detail-text .value {
+            font-size: 15px;
+            color: var(--text-primary);
+        }
+
+        .contact-detail-text .value a {
+            transition: color 0.3s ease;
+        }
+
+        .contact-detail-text .value a:hover {
+            color: var(--sage-dark);
+        }
+
+        /* Contact form */
+        .contact-form-wrapper {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 40px;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 24px rgba(61, 58, 54, 0.04);
+        }
+
+        .contact-form-wrapper h3 {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .contact-form-wrapper .form-subtitle {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 28px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            font-family: var(--font-sans);
+            font-size: 15px;
+            color: var(--text-primary);
+            background-color: var(--parchment);
+            border: 1px solid var(--border-dark);
+            border-radius: 8px;
+            padding: 12px 16px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            outline: none;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--text-light);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--sage);
+            box-shadow: 0 0 0 3px rgba(122, 140, 110, 0.12);
+        }
+
+        .form-group textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        .form-group select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%237d7770' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 44px;
+            cursor: pointer;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .form-submit {
+            width: 100%;
+            font-family: var(--font-sans);
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--white);
+            background-color: var(--sage-dark);
+            border: none;
+            border-radius: 8px;
+            padding: 14px 32px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: 8px;
+        }
+
+        .form-submit:hover {
+            background-color: var(--forest);
+            transform: translateY(-1px);
+        }
+
+        .form-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-message {
+            margin-top: 16px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            display: none;
+        }
+
+        .form-message.success {
+            display: block;
+            background-color: rgba(122, 140, 110, 0.1);
+            color: var(--sage-dark);
+            border: 1px solid rgba(122, 140, 110, 0.2);
+        }
+
+        .form-message.error {
+            display: block;
+            background-color: rgba(180, 80, 80, 0.08);
+            color: #8b4444;
+            border: 1px solid rgba(180, 80, 80, 0.15);
+        }
+
+        /* ========================================
+           FOOTER
+           ======================================== */
+        .footer {
+            background-color: var(--stone);
+            padding: 48px 0;
+        }
+
+        .footer-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .footer-logo-text {
+            font-family: var(--font-serif);
+            font-size: 17px;
+            font-weight: 500;
+            color: var(--warm-cream);
+            line-height: 1.1;
+        }
+
+        .footer-logo-sub {
+            font-family: var(--font-sans);
+            font-size: 9px;
+            font-weight: 500;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: rgba(245, 240, 232, 0.4);
+            margin-top: 1px;
+        }
+
+        .footer-logo-divider {
+            width: 1px;
+            height: 28px;
+            background: rgba(245, 240, 232, 0.2);
+        }
+
+        .footer-text {
+            font-size: 13px;
+            color: rgba(245, 240, 232, 0.4);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            font-size: 13px;
+            color: rgba(245, 240, 232, 0.5);
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: rgba(245, 240, 232, 0.8);
+        }
+
+        /* ========================================
+           RESPONSIVE
+           ======================================== */
+        @media (max-width: 1024px) {
+            :root {
+                --section-padding: 80px 0;
+            }
+
+            .about-inner {
+                gap: 48px;
+            }
+
+            .contact-inner {
+                gap: 48px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --section-padding: 64px 0;
+                --container-padding: 0 20px;
+            }
+
+            .nav {
+                padding: 0 20px;
+            }
+
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background-color: rgba(250, 247, 242, 0.98);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                gap: 32px;
+                z-index: 998;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links.open a {
+                color: var(--text-secondary);
+            }
+
+            .nav-links.open a:hover {
+                color: var(--text-primary);
+            }
+
+            .nav-links.open .nav-cta {
+                background-color: var(--sage-dark);
+                border-color: var(--sage-dark);
+                color: var(--white) !important;
+            }
+
+            .nav-logo-text {
+                font-size: 15px;
+            }
+
+            .nav-logo-sub {
+                font-size: 8px;
+            }
+
+            .nav-logo-divider {
+                height: 24px;
+            }
+
+            .nav-logo-svg-wrap {
+                width: 36px;
+                height: 26px;
+            }
+
+            .nav-logo-trees-light, .nav-logo-trees-dark {
+                width: 36px;
+                height: 26px;
+            }
+
+            .nav-links a {
+                font-size: 18px;
+            }
+
+            .nav-toggle {
+                display: flex;
+                z-index: 999;
+            }
+
+            .nav-toggle.open span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .nav-toggle.open span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .nav-toggle.open span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+
+            .hero-content {
+                padding-top: 100px;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .about-inner {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .about-image-wrapper {
+                order: -1;
+            }
+
+            .about-image {
+                aspect-ratio: 16 / 10;
+            }
+
+            .about-detail {
+                flex-wrap: wrap;
+                gap: 24px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-inner {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-scroll {
+                display: none;
+            }
+
+            .hero-content h1,
+            .hero-content .hero-tag,
+            .hero-content .hero-subtitle,
+            .hero-content .hero-actions {
+                max-width: 100%;
+            }
+
+            .hero-bg {
+                background-position: right center;
+            }
+
+            .hero-bg::after {
+                background:
+                    linear-gradient(to bottom,
+                        rgba(58, 74, 50, 0.5) 0%,
+                        rgba(58, 74, 50, 0.25) 50%,
+                        rgba(58, 74, 50, 0.0) 100%
+                    );
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-form-wrapper {
+                padding: 28px 24px;
+            }
+
+            .service-card {
+                padding: 28px 24px;
+            }
+        }
+
+        /* ========================================
+           ANIMATIONS
+           ======================================== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in-delay-1 { transition-delay: 0.1s; }
+        .fade-in-delay-2 { transition-delay: 0.2s; }
+        .fade-in-delay-3 { transition-delay: 0.3s; }
+        .fade-in-delay-4 { transition-delay: 0.4s; }
+        .fade-in-delay-5 { transition-delay: 0.5s; }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">
+                <div class="nav-logo-svg-wrap">
+                    <!-- Light version (on dark hero) -->
+                    <svg class="nav-logo-trees-light" width="42" height="30" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g opacity="0.25" transform="translate(-20, 60) scale(0.42)">
+                            <path d="M150 250 L170 250 L170 390 L150 390 Z" fill="rgba(245,240,232,0.85)"/>
+                            <path d="M160 30 C152 54,141 68,126 82 C138 80,149 75,160 64 C171 75,182 80,194 82 C179 68,168 54,160 30Z" fill="rgba(245,240,232,0.85)"/>
+                            <path d="M160 78 C145 104,122 120,96 136 C116 137,140 131,160 114 C177 129,205 139,228 138 C201 121,178 104,160 78Z" fill="rgba(245,240,232,0.85)"/>
+                            <path d="M160 118 C142 146,112 166,76 186 C104 187,135 178,160 158 C184 178,220 191,252 188 C217 168,187 147,160 118Z" fill="rgba(245,240,232,0.85)"/>
+                            <path d="M160 162 C141 194,103 220,56 244 C92 244,130 233,160 211 C186 234,232 248,272 245 C228 221,191 195,160 162Z" fill="rgba(245,240,232,0.85)"/>
+                            <path d="M160 210 C142 244,98 274,36 304 C84 303,126 289,160 263 C188 289,242 306,290 301 C238 274,194 244,160 210Z" fill="rgba(245,240,232,0.85)"/>
+                            <path d="M74 275 C98 276,120 270,141 255 C130 277,112 296,82 309 C63 317,44 318,26 315 C45 305,60 291,74 275Z" fill="transparent"/>
+                            <path d="M92 220 C111 220,130 214,147 201 C139 218,124 232,102 241 C83 248,63 249,49 246 C65 239,80 230,92 220Z" fill="transparent"/>
+                            <path d="M106 169 C122 169,136 165,149 154 C143 168,132 179,116 186 C99 193,82 194,68 191 C81 185,95 177,106 169Z" fill="transparent"/>
+                            <path d="M120 123 C133 123,145 119,154 111 C149 122,141 131,129 136 C115 142,101 143,90 141 C100 136,111 130,120 123Z" fill="transparent"/>
+                            <path d="M136 80 C145 80,152 77,158 71 C155 80,149 87,140 91 C131 95,122 95,115 94 C122 90,129 86,136 80Z" fill="transparent"/>
+                        </g>
+                        <g transform="translate(55, -5) scale(0.52)">
+                            <path d="M150 250 L170 250 L170 390 L150 390 Z" fill="rgba(245,240,232,0.85)"/>
+                            <path d="M160 30 C152 54,141 68,126 82 C138 80,149 75,160 64 C171 75,182 80,194 82 C179 68,168 54,160 30Z" fill="rgba(245,240,232,0.85)"/>
+                            <path d="M160 78 C145 104,122 120,96 136 C116 137,140 131,160 114 C177 129,205 139,228 138 C201 121,178 104,160 78Z" fill="rgba(245,240,232,0.85)"/>
+                            <path d="M160 118 C142 146,112 166,76 186 C104 187,135 178,160 158 C184 178,220 191,252 188 C217 168,187 147,160 118Z" fill="rgba(245,240,232,0.85)"/>
+                            <path d="M160 162 C141 194,103 220,56 244 C92 244,130 233,160 211 C186 234,232 248,272 245 C228 221,191 195,160 162Z" fill="rgba(245,240,232,0.85)"/>
+                            <path d="M160 210 C142 244,98 274,36 304 C84 303,126 289,160 263 C188 289,242 306,290 301 C238 274,194 244,160 210Z" fill="rgba(245,240,232,0.85)"/>
+                            <path d="M74 275 C98 276,120 270,141 255 C130 277,112 296,82 309 C63 317,44 318,26 315 C45 305,60 291,74 275Z" fill="transparent"/>
+                            <path d="M92 220 C111 220,130 214,147 201 C139 218,124 232,102 241 C83 248,63 249,49 246 C65 239,80 230,92 220Z" fill="transparent"/>
+                            <path d="M106 169 C122 169,136 165,149 154 C143 168,132 179,116 186 C99 193,82 194,68 191 C81 185,95 177,106 169Z" fill="transparent"/>
+                            <path d="M120 123 C133 123,145 119,154 111 C149 122,141 131,129 136 C115 142,101 143,90 141 C100 136,111 130,120 123Z" fill="transparent"/>
+                            <path d="M136 80 C145 80,152 77,158 71 C155 80,149 87,140 91 C131 95,122 95,115 94 C122 90,129 86,136 80Z" fill="transparent"/>
+                        </g>
+                        <g opacity="0.4" transform="translate(140, 38) scale(0.45)">
+                            <path d="M150 250 L170 250 L170 390 L150 390 Z" fill="rgba(245,240,232,0.85)"/>
+                            <path d="M160 30 C152 54,141 68,126 82 C138 80,149 75,160 64 C171 75,182 80,194 82 C179 68,168 54,160 30Z" fill="rgba(245,240,232,0.85)"/>
+                            <path d="M160 78 C145 104,122 120,96 136 C116 137,140 131,160 114 C177 129,205 139,228 138 C201 121,178 104,160 78Z" fill="rgba(245,240,232,0.85)"/>
+                            <path d="M160 118 C142 146,112 166,76 186 C104 187,135 178,160 158 C184 178,220 191,252 188 C217 168,187 147,160 118Z" fill="rgba(245,240,232,0.85)"/>
+                            <path d="M160 162 C141 194,103 220,56 244 C92 244,130 233,160 211 C186 234,232 248,272 245 C228 221,191 195,160 162Z" fill="rgba(245,240,232,0.85)"/>
+                            <path d="M160 210 C142 244,98 274,36 304 C84 303,126 289,160 263 C188 289,242 306,290 301 C238 274,194 244,160 210Z" fill="rgba(245,240,232,0.85)"/>
+                            <path d="M74 275 C98 276,120 270,141 255 C130 277,112 296,82 309 C63 317,44 318,26 315 C45 305,60 291,74 275Z" fill="transparent"/>
+                            <path d="M92 220 C111 220,130 214,147 201 C139 218,124 232,102 241 C83 248,63 249,49 246 C65 239,80 230,92 220Z" fill="transparent"/>
+                            <path d="M106 169 C122 169,136 165,149 154 C143 168,132 179,116 186 C99 193,82 194,68 191 C81 185,95 177,106 169Z" fill="transparent"/>
+                            <path d="M120 123 C133 123,145 119,154 111 C149 122,141 131,129 136 C115 142,101 143,90 141 C100 136,111 130,120 123Z" fill="transparent"/>
+                            <path d="M136 80 C145 80,152 77,158 71 C155 80,149 87,140 91 C131 95,122 95,115 94 C122 90,129 86,136 80Z" fill="transparent"/>
+                        </g>
+                    </svg>
+                    <!-- Dark version (on scrolled light bg) -->
+                    <svg class="nav-logo-trees-dark" width="42" height="30" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g opacity="0.25" transform="translate(-20, 60) scale(0.42)">
+                            <path d="M150 250 L170 250 L170 390 L150 390 Z" fill="#5e6d54"/>
+                            <path d="M160 30 C152 54,141 68,126 82 C138 80,149 75,160 64 C171 75,182 80,194 82 C179 68,168 54,160 30Z" fill="#5e6d54"/>
+                            <path d="M160 78 C145 104,122 120,96 136 C116 137,140 131,160 114 C177 129,205 139,228 138 C201 121,178 104,160 78Z" fill="#5e6d54"/>
+                            <path d="M160 118 C142 146,112 166,76 186 C104 187,135 178,160 158 C184 178,220 191,252 188 C217 168,187 147,160 118Z" fill="#5e6d54"/>
+                            <path d="M160 162 C141 194,103 220,56 244 C92 244,130 233,160 211 C186 234,232 248,272 245 C228 221,191 195,160 162Z" fill="#5e6d54"/>
+                            <path d="M160 210 C142 244,98 274,36 304 C84 303,126 289,160 263 C188 289,242 306,290 301 C238 274,194 244,160 210Z" fill="#5e6d54"/>
+                            <path d="M74 275 C98 276,120 270,141 255 C130 277,112 296,82 309 C63 317,44 318,26 315 C45 305,60 291,74 275Z" fill="white"/>
+                            <path d="M92 220 C111 220,130 214,147 201 C139 218,124 232,102 241 C83 248,63 249,49 246 C65 239,80 230,92 220Z" fill="white"/>
+                            <path d="M106 169 C122 169,136 165,149 154 C143 168,132 179,116 186 C99 193,82 194,68 191 C81 185,95 177,106 169Z" fill="white"/>
+                            <path d="M120 123 C133 123,145 119,154 111 C149 122,141 131,129 136 C115 142,101 143,90 141 C100 136,111 130,120 123Z" fill="white"/>
+                            <path d="M136 80 C145 80,152 77,158 71 C155 80,149 87,140 91 C131 95,122 95,115 94 C122 90,129 86,136 80Z" fill="white"/>
+                        </g>
+                        <g transform="translate(55, -5) scale(0.52)">
+                            <path d="M150 250 L170 250 L170 390 L150 390 Z" fill="#5e6d54"/>
+                            <path d="M160 30 C152 54,141 68,126 82 C138 80,149 75,160 64 C171 75,182 80,194 82 C179 68,168 54,160 30Z" fill="#5e6d54"/>
+                            <path d="M160 78 C145 104,122 120,96 136 C116 137,140 131,160 114 C177 129,205 139,228 138 C201 121,178 104,160 78Z" fill="#5e6d54"/>
+                            <path d="M160 118 C142 146,112 166,76 186 C104 187,135 178,160 158 C184 178,220 191,252 188 C217 168,187 147,160 118Z" fill="#5e6d54"/>
+                            <path d="M160 162 C141 194,103 220,56 244 C92 244,130 233,160 211 C186 234,232 248,272 245 C228 221,191 195,160 162Z" fill="#5e6d54"/>
+                            <path d="M160 210 C142 244,98 274,36 304 C84 303,126 289,160 263 C188 289,242 306,290 301 C238 274,194 244,160 210Z" fill="#5e6d54"/>
+                            <path d="M74 275 C98 276,120 270,141 255 C130 277,112 296,82 309 C63 317,44 318,26 315 C45 305,60 291,74 275Z" fill="white"/>
+                            <path d="M92 220 C111 220,130 214,147 201 C139 218,124 232,102 241 C83 248,63 249,49 246 C65 239,80 230,92 220Z" fill="white"/>
+                            <path d="M106 169 C122 169,136 165,149 154 C143 168,132 179,116 186 C99 193,82 194,68 191 C81 185,95 177,106 169Z" fill="white"/>
+                            <path d="M120 123 C133 123,145 119,154 111 C149 122,141 131,129 136 C115 142,101 143,90 141 C100 136,111 130,120 123Z" fill="white"/>
+                            <path d="M136 80 C145 80,152 77,158 71 C155 80,149 87,140 91 C131 95,122 95,115 94 C122 90,129 86,136 80Z" fill="white"/>
+                        </g>
+                        <g opacity="0.4" transform="translate(140, 38) scale(0.45)">
+                            <path d="M150 250 L170 250 L170 390 L150 390 Z" fill="#5e6d54"/>
+                            <path d="M160 30 C152 54,141 68,126 82 C138 80,149 75,160 64 C171 75,182 80,194 82 C179 68,168 54,160 30Z" fill="#5e6d54"/>
+                            <path d="M160 78 C145 104,122 120,96 136 C116 137,140 131,160 114 C177 129,205 139,228 138 C201 121,178 104,160 78Z" fill="#5e6d54"/>
+                            <path d="M160 118 C142 146,112 166,76 186 C104 187,135 178,160 158 C184 178,220 191,252 188 C217 168,187 147,160 118Z" fill="#5e6d54"/>
+                            <path d="M160 162 C141 194,103 220,56 244 C92 244,130 233,160 211 C186 234,232 248,272 245 C228 221,191 195,160 162Z" fill="#5e6d54"/>
+                            <path d="M160 210 C142 244,98 274,36 304 C84 303,126 289,160 263 C188 289,242 306,290 301 C238 274,194 244,160 210Z" fill="#5e6d54"/>
+                            <path d="M74 275 C98 276,120 270,141 255 C130 277,112 296,82 309 C63 317,44 318,26 315 C45 305,60 291,74 275Z" fill="white"/>
+                            <path d="M92 220 C111 220,130 214,147 201 C139 218,124 232,102 241 C83 248,63 249,49 246 C65 239,80 230,92 220Z" fill="white"/>
+                            <path d="M106 169 C122 169,136 165,149 154 C143 168,132 179,116 186 C99 193,82 194,68 191 C81 185,95 177,106 169Z" fill="white"/>
+                            <path d="M120 123 C133 123,145 119,154 111 C149 122,141 131,129 136 C115 142,101 143,90 141 C100 136,111 130,120 123Z" fill="white"/>
+                            <path d="M136 80 C145 80,152 77,158 71 C155 80,149 87,140 91 C131 95,122 95,115 94 C122 90,129 86,136 80Z" fill="white"/>
+                        </g>
+                    </svg>
+                </div>
+                <div class="nav-logo-divider"></div>
+                <div>
+                    <div class="nav-logo-text">Polk Valley</div>
+                    <div class="nav-logo-sub">Habitat Design</div>
+                </div>
+            </a>
+            <div class="nav-links" id="nav-links">
+                <a href="#services" onclick="closeMenu()">Services</a>
+                <a href="#process" onclick="closeMenu()">Process</a>
+                <a href="#about" onclick="closeMenu()">Why Native</a>
+                <a href="#contact" onclick="closeMenu()">Contact</a>
+                <a href="#contact" class="nav-cta" onclick="closeMenu()">Get in Touch</a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <div class="hero-bg">
+            <img src="photos/IMG_7533.JPG" alt="Monarch butterfly on native wildflowers">
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-tag">Native Habitat Design &amp; Restoration</div>
+            <h1>Your vision, rooted in <em>what was always here</em></h1>
+            <p class="hero-subtitle">We merge what you want your land to be with what it once was. Every design starts with the native ecology of your site and your vision for it. If it's not native, it's not us.</p>
+            <div class="hero-actions">
+                <a href="#contact" class="btn-primary">Start a Conversation</a>
+                <a href="#services" class="btn-secondary">Explore Our Work</a>
+            </div>
+        </div>
+
+        <div class="hero-scroll">
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="services-header fade-in">
+                <div class="section-tag">What We Do</div>
+                <h2>Thoughtful landscapes, grounded in ecology</h2>
+                <p>Every property has a story written in its soil, light, and surroundings. We help you read that story and design with it — not against it.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in fade-in-delay-1">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22c4-4 8-7.5 8-12a8 8 0 10-16 0c0 4.5 4 8 8 12z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </div>
+                    <h3>Native Landscape Design</h3>
+                    <p>Comprehensive planting plans rooted in your property's unique conditions — soil, light, moisture, and the natural character of your region. Beautiful and place-appropriate.</p>
+                </div>
+                <div class="service-card fade-in fade-in-delay-2">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75"/>
+                        </svg>
+                    </div>
+                    <h3>Habitat Restoration</h3>
+                    <p>Transforming neglected or degraded areas into thriving native ecosystems. We restore the ecological function of your land while creating spaces of natural beauty.</p>
+                </div>
+                <div class="service-card fade-in fade-in-delay-3">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/>
+                        </svg>
+                    </div>
+                    <h3>Invasive Plant Removal</h3>
+                    <p>Strategic removal of invasive species that crowd out native plants and degrade habitat. We clear the way for your landscape to become what it's meant to be.</p>
+                </div>
+                <div class="service-card fade-in fade-in-delay-4">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v8l4-2"/>
+                            <path d="M20.7 11a8.5 8.5 0 11-17.4 0"/>
+                            <path d="M12 22v-4"/>
+                            <path d="M8 22h8"/>
+                        </svg>
+                    </div>
+                    <h3>Woodland &amp; Shade Gardens</h3>
+                    <p>Specialized plantings for wooded areas and woodland edges — from ephemeral spring wildflowers to layered shrub and understory compositions that thrive in shade.</p>
+                </div>
+                <div class="service-card fade-in fade-in-delay-5">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 3c-1.2 0-2.4.6-3 1.7A3.6 3.6 0 004.6 9c-1 .6-1.7 1.8-1.7 3s.7 2.4 1.7 3c-.3 1.5.2 3 1.5 3.8a3.6 3.6 0 004.9.4c.6 1 1.8 1.8 3 1.8s2.4-.7 3-1.8a3.6 3.6 0 004.9-.4c1.3-.8 1.8-2.3 1.5-3.8 1-.6 1.7-1.8 1.7-3s-.7-2.4-1.7-3A3.6 3.6 0 0018 4.6C17.4 3.6 16.2 3 15 3"/>
+                            <circle cx="12" cy="12" r="2"/>
+                        </svg>
+                    </div>
+                    <h3>Pollinator Gardens</h3>
+                    <p>Purpose-designed plantings that support bees, butterflies, and other essential pollinators — with sequential bloom times, host plants, and season-long visual interest.</p>
+                </div>
+                <div class="service-card fade-in fade-in-delay-5">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 22L12 2l10 20"/>
+                            <path d="M12 2v20"/>
+                            <path d="M7 12h10"/>
+                            <path d="M5 17h14"/>
+                        </svg>
+                    </div>
+                    <h3>Naturalized Improvements</h3>
+                    <p>Reimagining tired landscape beds, overgrown borders, and generic plantings into naturalistic compositions that feel intentional, layered, and distinctly of this place.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROCESS ===== -->
+    <section class="process" id="process">
+        <div class="container">
+            <div class="process-header fade-in">
+                <div class="section-tag">How We Work</div>
+                <h2>Every landscape begins with listening</h2>
+                <p>Our process is collaborative, site-specific, and designed to make the journey from idea to living landscape feel clear, guided, and inspired.</p>
+            </div>
+
+            <div class="process-blocks">
+                <div class="process-block fade-in">
+                    <div class="process-block-top">
+                        <div class="process-num">01</div>
+                        <div class="process-block-text">
+                            <h3>Conversation &amp; Site Walk</h3>
+                            <p>It starts with you reaching out and sharing a bit about your property, your goals, and the kind of help you're looking for. From there, we visit the site together — reading the land, understanding the conditions, and talking through what you want the space to feel like. Light, moisture, slope, invasive pressure, existing plantings — we take it all in alongside your vision for the space.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="process-block process-block--featured fade-in">
+                    <div class="process-block-top">
+                        <div class="process-num">02</div>
+                        <div class="process-block-text">
+                            <h3>Concept, Design &amp; Proposal</h3>
+                            <p>We develop a direction grounded in both ecology and your aesthetic goals — plant palettes, restoration strategies, phased recommendations. Then we help you see it. Using photo-based concept renderings, we visualize what your property could become so you can feel confident in the plan before anything goes in the ground.</p>
+                        </div>
+                    </div>
+                    <div class="process-before-after">
+                        <div class="process-ba-item">
+                            <img src="before.jpg" alt="Woodland hillside before restoration — bare ground and leaf litter under hemlock canopy">
+                            <span class="process-ba-label">Before</span>
+                        </div>
+                        <div class="process-ba-item">
+                            <img src="after.png" alt="Same woodland hillside visualized with Virginia bluebells and wood poppies carpeting the forest floor">
+                            <span class="process-ba-label">After</span>
+                        </div>
+                        <p class="process-ba-caption">Visualizing a restored native understory — Virginia bluebells and wood poppies that would have been present historically before the land was cleared for farming over a century ago.</p>
+                    </div>
+                </div>
+
+                <div class="process-block fade-in">
+                    <div class="process-block-top">
+                        <div class="process-num">03</div>
+                        <div class="process-block-text">
+                            <h3>Installation &amp; Stewardship</h3>
+                            <p>The project comes to life — planting, clearing invasives, restoring overgrown areas, or building out the plan in thoughtful phases. But landscapes are living systems, not finished products. We provide follow-up guidance, stewardship recommendations, and the long-term thinking that helps your landscape deepen and mature over the years.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="process-summary fade-in">
+                <p>"We begin by understanding the land, your goals, and the character of the space. From there, we develop a clear design direction, help you visualize the possibilities, and create a path toward a more beautiful, place-rooted landscape."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT / STORY ===== -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-inner">
+                <div class="about-image-wrapper fade-in">
+                    <div class="about-image">
+                        <img src="photos/son-monarch.jpg" alt="A child holding a freshly hatched Monarch butterfly on a summer day" style="width: 100%; height: 100%; object-fit: cover; display: block; border-radius: inherit;">
+                    </div>
+                    <div class="about-image-accent"></div>
+                </div>
+                <div class="about-text fade-in fade-in-delay-1">
+                    <div class="section-tag">Why Native</div>
+                    <h2>Working <em>with</em> nature, not against it</h2>
+                    <p>When you plant what was historically here, something remarkable happens. The birds, bees, butterflies, and wildlife in your area evolved alongside these plants over thousands of years — so a native landscape doesn't just look beautiful, it comes alive. You're adding an entire layer of charm to your property: more butterflies, more songbirds, more of the things that make a place feel magical.</p>
+                    <p>This is how it started for me. I wanted to help Monarch butterflies, so I started planting milkweed at my 1901 schoolhouse in eastern Pennsylvania. What I got back was something I wasn't prepared for. You watch the caterpillars show up and eat the milkweed. Then they go off and form their chrysalis. And then one morning, a Monarch hatches right there on your property. The first time you see it happen, it changes the way you think about your land. Now I get to share that with my kids — and chrysalises hang all over our property every summer.</p>
+                    <p>That experience became Polk Valley Habitat Design. Native isn't a compromise — it's how you get a landscape that's both stunning and alive with the kind of moments you can't plan for.</p>
+                    <div class="about-detail">
+                        <div class="about-detail-item">
+                            <span class="label">Based In</span>
+                            <span class="value">Eastern Pennsylvania</span>
+                        </div>
+                        <div class="about-detail-item">
+                            <span class="label">Focus</span>
+                            <span class="value">Native Habitat Restoration</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-inner">
+                <div class="contact-info fade-in">
+                    <div class="section-tag">Get in Touch</div>
+                    <h2>Let's talk about your landscape</h2>
+                    <p>Whether you have a specific project in mind or just want to explore what's possible on your property, we'd love to hear from you. Every great landscape starts with a conversation.</p>
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <div class="contact-detail-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <polyline points="22,6 12,13 2,6"/>
+                                </svg>
+                            </div>
+                            <div class="contact-detail-text">
+                                <div class="label">Email</div>
+                                <div class="value"><a href="mailto:info@polkvalleyhabitat.com">info@polkvalleyhabitat.com</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <div class="contact-detail-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                                </svg>
+                            </div>
+                            <div class="contact-detail-text">
+                                <div class="label">Phone</div>
+                                <div class="value"><a href="tel:+14844723134">484.472.3134</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <div class="contact-detail-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                                    <circle cx="12" cy="10" r="3"/>
+                                </svg>
+                            </div>
+                            <div class="contact-detail-text">
+                                <div class="label">Service Area</div>
+                                <div class="value">Serving the greater Lehigh Valley area</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper fade-in fade-in-delay-2">
+                    <h3>Send us a message</h3>
+                    <p class="form-subtitle">We'll get back to you within one business day.</p>
+                    <form id="contact-form" onsubmit="handleSubmit(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" placeholder="Your name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="_replyto" placeholder="you@email.com" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Tell us about your property or project</label>
+                            <textarea id="message" name="message" placeholder="Describe your space, what you'd like to change, or any questions you have..."></textarea>
+                        </div>
+                        <input type="text" name="_gotcha" style="display:none">
+                        <button type="submit" class="form-submit" id="submit-btn">Send Message</button>
+                        <div class="form-message" id="form-message"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-logo">
+                    <svg width="36" height="26" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g opacity="0.25" transform="translate(-20, 60) scale(0.42)">
+                            <path d="M150 250 L170 250 L170 390 L150 390 Z" fill="#94a685"/><path d="M160 30 C152 54,141 68,126 82 C138 80,149 75,160 64 C171 75,182 80,194 82 C179 68,168 54,160 30Z" fill="#94a685"/><path d="M160 78 C145 104,122 120,96 136 C116 137,140 131,160 114 C177 129,205 139,228 138 C201 121,178 104,160 78Z" fill="#94a685"/><path d="M160 118 C142 146,112 166,76 186 C104 187,135 178,160 158 C184 178,220 191,252 188 C217 168,187 147,160 118Z" fill="#94a685"/><path d="M160 162 C141 194,103 220,56 244 C92 244,130 233,160 211 C186 234,232 248,272 245 C228 221,191 195,160 162Z" fill="#94a685"/><path d="M160 210 C142 244,98 274,36 304 C84 303,126 289,160 263 C188 289,242 306,290 301 C238 274,194 244,160 210Z" fill="#94a685"/><path d="M74 275 C98 276,120 270,141 255 C130 277,112 296,82 309 C63 317,44 318,26 315 C45 305,60 291,74 275Z" fill="#3a4a32"/><path d="M92 220 C111 220,130 214,147 201 C139 218,124 232,102 241 C83 248,63 249,49 246 C65 239,80 230,92 220Z" fill="#3a4a32"/><path d="M106 169 C122 169,136 165,149 154 C143 168,132 179,116 186 C99 193,82 194,68 191 C81 185,95 177,106 169Z" fill="#3a4a32"/><path d="M120 123 C133 123,145 119,154 111 C149 122,141 131,129 136 C115 142,101 143,90 141 C100 136,111 130,120 123Z" fill="#3a4a32"/><path d="M136 80 C145 80,152 77,158 71 C155 80,149 87,140 91 C131 95,122 95,115 94 C122 90,129 86,136 80Z" fill="#3a4a32"/>
+                        </g>
+                        <g transform="translate(55, -5) scale(0.52)">
+                            <path d="M150 250 L170 250 L170 390 L150 390 Z" fill="#94a685"/><path d="M160 30 C152 54,141 68,126 82 C138 80,149 75,160 64 C171 75,182 80,194 82 C179 68,168 54,160 30Z" fill="#94a685"/><path d="M160 78 C145 104,122 120,96 136 C116 137,140 131,160 114 C177 129,205 139,228 138 C201 121,178 104,160 78Z" fill="#94a685"/><path d="M160 118 C142 146,112 166,76 186 C104 187,135 178,160 158 C184 178,220 191,252 188 C217 168,187 147,160 118Z" fill="#94a685"/><path d="M160 162 C141 194,103 220,56 244 C92 244,130 233,160 211 C186 234,232 248,272 245 C228 221,191 195,160 162Z" fill="#94a685"/><path d="M160 210 C142 244,98 274,36 304 C84 303,126 289,160 263 C188 289,242 306,290 301 C238 274,194 244,160 210Z" fill="#94a685"/><path d="M74 275 C98 276,120 270,141 255 C130 277,112 296,82 309 C63 317,44 318,26 315 C45 305,60 291,74 275Z" fill="#3a4a32"/><path d="M92 220 C111 220,130 214,147 201 C139 218,124 232,102 241 C83 248,63 249,49 246 C65 239,80 230,92 220Z" fill="#3a4a32"/><path d="M106 169 C122 169,136 165,149 154 C143 168,132 179,116 186 C99 193,82 194,68 191 C81 185,95 177,106 169Z" fill="#3a4a32"/><path d="M120 123 C133 123,145 119,154 111 C149 122,141 131,129 136 C115 142,101 143,90 141 C100 136,111 130,120 123Z" fill="#3a4a32"/><path d="M136 80 C145 80,152 77,158 71 C155 80,149 87,140 91 C131 95,122 95,115 94 C122 90,129 86,136 80Z" fill="#3a4a32"/>
+                        </g>
+                        <g opacity="0.4" transform="translate(140, 38) scale(0.45)">
+                            <path d="M150 250 L170 250 L170 390 L150 390 Z" fill="#94a685"/><path d="M160 30 C152 54,141 68,126 82 C138 80,149 75,160 64 C171 75,182 80,194 82 C179 68,168 54,160 30Z" fill="#94a685"/><path d="M160 78 C145 104,122 120,96 136 C116 137,140 131,160 114 C177 129,205 139,228 138 C201 121,178 104,160 78Z" fill="#94a685"/><path d="M160 118 C142 146,112 166,76 186 C104 187,135 178,160 158 C184 178,220 191,252 188 C217 168,187 147,160 118Z" fill="#94a685"/><path d="M160 162 C141 194,103 220,56 244 C92 244,130 233,160 211 C186 234,232 248,272 245 C228 221,191 195,160 162Z" fill="#94a685"/><path d="M160 210 C142 244,98 274,36 304 C84 303,126 289,160 263 C188 289,242 306,290 301 C238 274,194 244,160 210Z" fill="#94a685"/><path d="M74 275 C98 276,120 270,141 255 C130 277,112 296,82 309 C63 317,44 318,26 315 C45 305,60 291,74 275Z" fill="#3a4a32"/><path d="M92 220 C111 220,130 214,147 201 C139 218,124 232,102 241 C83 248,63 249,49 246 C65 239,80 230,92 220Z" fill="#3a4a32"/><path d="M106 169 C122 169,136 165,149 154 C143 168,132 179,116 186 C99 193,82 194,68 191 C81 185,95 177,106 169Z" fill="#3a4a32"/><path d="M120 123 C133 123,145 119,154 111 C149 122,141 131,129 136 C115 142,101 143,90 141 C100 136,111 130,120 123Z" fill="#3a4a32"/><path d="M136 80 C145 80,152 77,158 71 C155 80,149 87,140 91 C131 95,122 95,115 94 C122 90,129 86,136 80Z" fill="#3a4a32"/>
+                        </g>
+                    </svg>
+                    <div class="footer-logo-divider"></div>
+                    <div>
+                        <div class="footer-logo-text">Polk Valley</div>
+                        <div class="footer-logo-sub">Habitat Design</div>
+                    </div>
+                </div>
+                <p class="footer-text">&copy; 2026 Polk Valley Habitat Design. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="mailto:info@polkvalleyhabitat.com">Email</a>
+                    <a href="tel:+14844723134">Call</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        /* ========================================
+           NAVIGATION
+           ======================================== */
+        const nav = document.getElementById('nav');
+        const navLinks = document.getElementById('nav-links');
+        const navToggle = document.getElementById('nav-toggle');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        function toggleMenu() {
+            navLinks.classList.toggle('open');
+            navToggle.classList.toggle('open');
+        }
+
+        function closeMenu() {
+            navLinks.classList.remove('open');
+            navToggle.classList.remove('open');
+        }
+
+        /* ========================================
+           SCROLL ANIMATIONS
+           ======================================== */
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -60px 0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        /* ========================================
+           CONTACT FORM (Formspree)
+           ======================================== */
+        // TODO: Replace with your actual Formspree form ID
+        const FORMSPREE_URL = 'https://formspree.io/f/YOUR_FORM_ID';
+
+        async function handleSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const btn = document.getElementById('submit-btn');
+            const msg = document.getElementById('form-message');
+            const originalText = btn.textContent;
+
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+            msg.className = 'form-message';
+            msg.style.display = 'none';
+
+            try {
+                const data = new FormData(form);
+                const response = await fetch(FORMSPREE_URL, {
+                    method: 'POST',
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    msg.textContent = 'Thank you! We\'ll be in touch soon.';
+                    msg.className = 'form-message success';
+                    form.reset();
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                msg.innerHTML = 'Something went wrong. Please email us directly at <a href="mailto:info@polkvalleyhabitat.com" style="text-decoration:underline">info@polkvalleyhabitat.com</a>.';
+                msg.className = 'form-message error';
+            }
+
+            btn.textContent = originalText;
+            btn.disabled = false;
+        }
+    </script>
+
+</body>
+</html>
