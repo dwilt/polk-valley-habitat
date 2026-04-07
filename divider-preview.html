@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section Divider Options</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #f5f0e8; color: #3a4a32; }
+    
+    .section { padding: 60px 40px; text-align: center; }
+    .section:nth-child(odd) { background: #f5f0e8; }
+    .section:nth-child(even) { background: #eee8db; }
+    .section h3 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; color: #7a8c6e; margin-bottom: 8px; }
+    .section p { font-size: 13px; color: #999; margin-bottom: 30px; }
+
+    /* ====== OPTION 1: Centered tree icon on thin line ====== */
+    .divider-1 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 60px;
+    }
+    .divider-1::before, .divider-1::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(to var(--dir, right), transparent, #94a685 50%, #94a685);
+    }
+    .divider-1::before { --dir: right; }
+    .divider-1::after { --dir: left; }
+    .divider-1 svg { margin: 0 20px; flex-shrink: 0; }
+
+    /* ====== OPTION 2: Rolling hills / treeline silhouette ====== */
+    .divider-2 { width: 100%; overflow: hidden; line-height: 0; }
+
+    /* ====== OPTION 3: Three small leaves scattered ====== */
+    .divider-3 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        padding: 10px 0;
+    }
+    .divider-3 svg { opacity: 0.5; }
+    .divider-3 svg:nth-child(2) { opacity: 0.8; transform: scale(1.1); }
+
+    /* ====== OPTION 4: Thin gradient line with fade ====== */
+    .divider-4 {
+        height: 1px;
+        max-width: 400px;
+        margin: 0 auto;
+        background: linear-gradient(to right, transparent, #94a685, transparent);
+    }
+
+    /* ====== OPTION 5: Topographic contour lines ====== */
+    .divider-5 { width: 100%; overflow: hidden; line-height: 0; }
+
+    /* ====== OPTION 6: Botanical vine/branch ====== */
+    .divider-6 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* ====== OPTION 7: Double thin lines with leaf ====== */
+    .divider-7 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 80px;
+        gap: 16px;
+    }
+    .divider-7-line {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+    .divider-7-line span {
+        display: block;
+        height: 1px;
+        background: linear-gradient(to var(--dir, right), transparent, #94a685);
+    }
+    .divider-7-line.left span { --dir: right; }
+    .divider-7-line.right span { --dir: left; }
+</style>
+</head>
+<body>
+
+<div class="section">
+    <h3>Option 1</h3>
+    <p>Centered tree icon on a thin line</p>
+    <div class="divider-1">
+        <svg width="28" height="36" viewBox="0 0 320 400" fill="#94a685">
+            <path d="M150 250 L170 250 L170 390 L150 390 Z"/>
+            <path d="M160 30 C152 54,141 68,126 82 C138 80,149 75,160 64 C171 75,182 80,194 82 C179 68,168 54,160 30Z"/>
+            <path d="M160 78 C145 104,122 120,96 136 C116 137,140 131,160 114 C177 129,205 139,228 138 C201 121,178 104,160 78Z"/>
+            <path d="M160 118 C142 146,112 166,76 186 C104 187,135 178,160 158 C184 178,220 191,252 188 C217 168,187 147,160 118Z"/>
+            <path d="M160 162 C141 194,103 220,56 244 C92 244,130 233,160 211 C186 234,232 248,272 245 C228 221,191 195,160 162Z"/>
+            <path d="M160 210 C142 244,98 274,36 304 C84 303,126 289,160 263 C188 289,242 306,290 301 C238 274,194 244,160 210Z"/>
+        </svg>
+    </div>
+</div>
+
+<div class="section">
+    <h3>Option 2</h3>
+    <p>Treeline / rolling hills silhouette</p>
+    <div class="divider-2">
+        <svg viewBox="0 0 1440 60" preserveAspectRatio="none" width="100%" height="60" fill="none">
+            <!-- Treeline silhouette -->
+            <path d="M0 60 L0 45 Q30 42,60 45 L60 35 Q65 20,70 35 L70 40 Q80 38,90 42 L90 30 Q95 12,100 30 L100 38 Q120 35,140 40 L140 42 Q160 38,180 42 L180 28 Q185 10,190 28 L190 35 Q200 32,210 38 L210 40 Q230 36,250 40 L250 32 Q255 15,260 32 L260 38 Q280 35,300 40 L300 25 Q305 8,310 25 L310 35 Q330 32,350 38 L350 40 Q370 37,390 40 L390 42 Q410 38,430 42 L430 30 Q435 14,440 30 L440 38 Q460 35,480 40 L480 35 Q485 18,490 35 L490 40 Q510 36,530 40 L530 42 Q560 38,590 42 L590 28 Q595 10,600 28 L600 38 Q620 35,640 40 L640 42 Q660 39,680 42 L680 32 Q685 16,690 32 L690 38 Q710 35,730 40 L730 25 Q735 8,740 25 L740 36 Q760 33,780 38 L780 42 Q800 39,820 42 L820 30 Q825 12,830 30 L830 38 Q850 35,870 40 L870 35 Q875 18,880 35 L880 40 Q900 37,920 40 L920 42 Q940 38,960 42 L960 28 Q965 10,970 28 L970 38 Q990 35,1010 40 L1010 32 Q1015 14,1020 32 L1020 38 Q1040 35,1060 40 L1060 42 Q1080 38,1100 42 L1100 30 Q1105 12,1110 30 L1110 38 Q1130 35,1150 40 L1150 25 Q1155 8,1160 25 L1160 35 Q1180 32,1200 38 L1200 42 Q1220 39,1240 42 L1240 35 Q1245 18,1250 35 L1250 40 Q1270 36,1290 40 L1290 42 Q1310 38,1330 42 L1330 28 Q1335 10,1340 28 L1340 38 Q1360 35,1380 40 L1380 42 Q1400 39,1420 42 L1440 45 L1440 60 Z" 
+            fill="#94a685" opacity="0.2"/>
+        </svg>
+    </div>
+</div>
+
+<div class="section">
+    <h3>Option 3</h3>
+    <p>Three small scattered leaves</p>
+    <div class="divider-3">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#7a8c6e">
+            <path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 008 20c4 0 8.56-3.88 9-12zM3.24 11.04C3.56 10.44 7.65 3 14 3c0 0-3.44 5.78-6.87 7.43-1.22.59-2.57.92-3.89.61z" transform="rotate(-30 12 12)"/>
+        </svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#7a8c6e">
+            <path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 008 20c4 0 8.56-3.88 9-12zM3.24 11.04C3.56 10.44 7.65 3 14 3c0 0-3.44 5.78-6.87 7.43-1.22.59-2.57.92-3.89.61z"/>
+        </svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#7a8c6e">
+            <path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 008 20c4 0 8.56-3.88 9-12zM3.24 11.04C3.56 10.44 7.65 3 14 3c0 0-3.44 5.78-6.87 7.43-1.22.59-2.57.92-3.89.61z" transform="rotate(20 12 12)"/>
+        </svg>
+    </div>
+</div>
+
+<div class="section">
+    <h3>Option 4</h3>
+    <p>Simple gradient fade line</p>
+    <div class="divider-4"></div>
+</div>
+
+<div class="section">
+    <h3>Option 5</h3>
+    <p>Topographic contour lines</p>
+    <div class="divider-5">
+        <svg viewBox="0 0 1440 50" preserveAspectRatio="none" width="100%" height="50" fill="none" stroke="#94a685" stroke-width="1">
+            <path d="M0 35 Q120 15,240 30 Q360 45,480 25 Q600 5,720 20 Q840 35,960 18 Q1080 0,1200 22 Q1320 40,1440 28" opacity="0.15"/>
+            <path d="M0 40 Q120 22,240 35 Q360 48,480 30 Q600 12,720 28 Q840 42,960 25 Q1080 8,1200 30 Q1320 46,1440 35" opacity="0.25"/>
+            <path d="M0 45 Q120 30,240 40 Q360 50,480 35 Q600 20,720 35 Q840 48,960 32 Q1080 16,1200 36 Q1320 50,1440 42" opacity="0.15"/>
+        </svg>
+    </div>
+</div>
+
+<div class="section">
+    <h3>Option 6</h3>
+    <p>Botanical branch / vine</p>
+    <div class="divider-6">
+        <svg width="280" height="30" viewBox="0 0 280 30" fill="none">
+            <!-- Main stem -->
+            <path d="M20 15 Q70 15,100 13 Q140 10,180 13 Q220 16,260 15" stroke="#94a685" stroke-width="1" opacity="0.6"/>
+            <!-- Leaves along the stem -->
+            <path d="M60 13 Q55 6,65 4 Q72 6,65 13" fill="#94a685" opacity="0.35"/>
+            <path d="M95 12 Q98 5,105 6 Q106 10,98 13" fill="#94a685" opacity="0.5"/>
+            <path d="M130 11 Q125 4,135 2 Q142 5,134 12" fill="#94a685" opacity="0.4"/>
+            <path d="M160 12 Q163 5,170 6 Q171 10,163 13" fill="#94a685" opacity="0.55"/>
+            <path d="M195 13 Q190 6,200 4 Q207 7,199 14" fill="#94a685" opacity="0.35"/>
+            <path d="M225 14 Q228 7,235 8 Q236 12,228 15" fill="#94a685" opacity="0.45"/>
+            <!-- Small berries/dots -->
+            <circle cx="75" cy="10" r="2" fill="#94a685" opacity="0.3"/>
+            <circle cx="145" cy="8" r="1.5" fill="#94a685" opacity="0.25"/>
+            <circle cx="210" cy="11" r="2" fill="#94a685" opacity="0.3"/>
+        </svg>
+    </div>
+</div>
+
+<div class="section">
+    <h3>Option 7</h3>
+    <p>Double thin lines with a leaf</p>
+    <div class="divider-7">
+        <div class="divider-7-line left">
+            <span></span>
+            <span style="opacity: 0.4;"></span>
+        </div>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="#7a8c6e" opacity="0.6">
+            <path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 008 20c4 0 8.56-3.88 9-12zM3.24 11.04C3.56 10.44 7.65 3 14 3c0 0-3.44 5.78-6.87 7.43-1.22.59-2.57.92-3.89.61z"/>
+        </svg>
+        <div class="divider-7-line right">
+            <span></span>
+            <span style="opacity: 0.4;"></span>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

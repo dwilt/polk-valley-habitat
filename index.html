@@ -284,43 +284,62 @@
             right: 0;
             bottom: 0;
             left: 0;
-            background-color: var(--forest);
+            background:
+                /* Bright hotspot bottom-left */
+                radial-gradient(650px 250px at 180px calc(100% - 40px),
+                    #e8f5c8 0%, #d0eaa5 25%, transparent 65%
+                ),
+                /* Secondary lime patch left of center bottom */
+                radial-gradient(450px 180px at 500px calc(100% - 60px),
+                    #d5eda0 0%, #b8d88a 30%, transparent 70%
+                ),
+                /* Bright hotspot bottom-right */
+                radial-gradient(580px 220px at calc(100% - 200px) calc(100% - 50px),
+                    #ddf2b0 0%, #bfe098 25%, transparent 65%
+                ),
+                /* Smaller warm patch far right */
+                radial-gradient(360px 160px at calc(100% - 40px) calc(100% - 120px),
+                    #c8e49a 0%, transparent 70%
+                ),
+                /* Broad soft lime wash across entire bottom */
+                radial-gradient(1600px 280px at 50% calc(100% + 20px),
+                    #a8d480 0%, #7ab868 30%, transparent 70%
+                ),
+                /* Mid-bottom transition — soft green */
+                radial-gradient(1300px 240px at 45% calc(100% - 160px),
+                    #6aaa6a 0%, #509868 30%, transparent 65%
+                ),
+                /* Left mid patch — slightly warmer green */
+                radial-gradient(500px 320px at 80px 60%,
+                    #4a8a60 0%, #3d7858 40%, transparent 75%
+                ),
+                /* Right mid area — teal touch */
+                radial-gradient(580px 280px at calc(100% - 250px) 50%,
+                    #458878 0%, #3a7868 40%, transparent 75%
+                ),
+                /* Central teal-green band */
+                radial-gradient(1440px 360px at 50% 48%,
+                    #428070 0%, #3a7060 35%, transparent 75%
+                ),
+                /* Upper-mid darker green */
+                radial-gradient(1150px 280px at 55% 35%,
+                    #2e5848 0%, #264a3e 40%, transparent 75%
+                ),
+                /* Dark shadow top-left corner */
+                radial-gradient(720px 320px at 50px 50px,
+                    #1a2422 0%, #1e2a28 40%, transparent 70%
+                ),
+                /* Dark shadow top-right */
+                radial-gradient(650px 280px at calc(100% - 80px) 30px,
+                    #1c2826 0%, transparent 65%
+                ),
+                /* Base dark-to-green gradient */
+                linear-gradient(to bottom,
+                    #1a2624 0%, #1e2c2a 15%, #253a34 30%, #2d4a42 45%, #356050 60%, #3e7260 75%, #4a8a6a 90%, #5a9a70 100%
+                );
             z-index: 0;
         }
 
-        .hero-bg-img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .hero-butterfly {
-            position: absolute;
-            right: 8%;
-            bottom: 0;
-            height: 75%;
-            width: auto;
-            z-index: 1;
-            display: block;
-        }
-
-        .hero-bg::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse 60% 120% at 10% 50%,
-                rgba(58, 74, 50, 0.55) 0%,
-                rgba(58, 74, 50, 0.3) 40%,
-                rgba(58, 74, 50, 0) 75%
-            );
-            z-index: 2;
-        }
-
-        /* Botanical SVG decoration (removed) */
 
         .hero-content {
             position: relative;
@@ -402,17 +421,19 @@
             letter-spacing: 0.08em;
             text-transform: uppercase;
             color: var(--forest);
-            background-color: var(--tan-light);
+            background-color: #f5f0e8;
             padding: 14px 32px;
             border-radius: 6px;
             border: none;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
         }
 
         .btn-primary:hover {
-            background-color: var(--tan);
+            background-color: #fff;
             transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
         }
 
         .btn-secondary {
@@ -423,18 +444,18 @@
             font-weight: 500;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            color: rgba(245, 240, 232, 0.8);
-            background: transparent;
+            color: var(--forest);
+            background-color: rgba(245, 240, 232, 0.55);
             padding: 14px 32px;
             border-radius: 6px;
-            border: 1px solid rgba(245, 240, 232, 0.25);
+            border: none;
             cursor: pointer;
-            transition: border-color 0.3s ease, color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
         .btn-secondary:hover {
-            border-color: rgba(245, 240, 232, 0.5);
-            color: rgba(245, 240, 232, 1);
+            background-color: rgba(245, 240, 232, 0.75);
+            transform: translateY(-1px);
         }
 
         .hero-scroll {
@@ -1387,13 +1408,7 @@
                 max-width: 100%;
             }
 
-            .hero-butterfly {
-                right: -5%;
-                bottom: 0;
-                height: 45%;
-            }
-
-            /* Mobile gradient overlay removed */
+            /* Mobile hero adjustments removed */
         }
 
         @media (max-width: 480px) {
@@ -1542,9 +1557,7 @@
 
     <!-- ===== HERO ===== -->
     <section class="hero">
-        <div class="hero-bg">
-            <img src="bg.jpg" alt="" class="hero-bg-img">
-        </div>
+        <div class="hero-bg"></div>
 
         <div class="hero-content">
             <div class="hero-tag">Native Habitat Design &amp; Restoration</div>
@@ -1560,6 +1573,7 @@
             <div class="scroll-line"></div>
         </div>
     </section>
+
 
     <!-- ===== SERVICES ===== -->
     <section class="services" id="services">
@@ -1637,6 +1651,7 @@
         </div>
     </section>
 
+
     <!-- ===== PROCESS ===== -->
     <section class="process" id="process">
         <div class="container">
@@ -1694,6 +1709,7 @@
             </div>
         </div>
     </section>
+
 
     <!-- ===== ABOUT / STORY ===== -->
     <section class="about" id="about">
