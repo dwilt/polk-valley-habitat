@@ -762,6 +762,60 @@
             border-bottom: none;
             font-weight: 700;
         }
+        @media (max-width: 640px) {
+            .allocation-table thead { display: none; }
+            .allocation-table, .allocation-table tbody, .allocation-table tr, .allocation-table td {
+                display: block;
+                width: 100%;
+            }
+            .allocation-table tr {
+                background: var(--white);
+                border: 1px solid var(--border);
+                border-radius: 8px;
+                margin-bottom: 0.9rem;
+                padding: 0.4rem 0.9rem;
+            }
+            .allocation-table tr.totals-row {
+                background: var(--warm-cream);
+                border-color: var(--border-dark);
+            }
+            .allocation-table td {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                text-align: right;
+                padding: 0.5rem 0 !important;
+                border-bottom: 1px dashed var(--border) !important;
+                border-top: none !important;
+            }
+            .allocation-table td:last-child { border-bottom: none !important; }
+            .allocation-table td::before {
+                content: attr(data-label);
+                font-weight: 500;
+                color: var(--text-light);
+                text-align: left;
+                padding-right: 1rem;
+            }
+            .allocation-table td[data-label="Area"] {
+                font-family: var(--font-serif);
+                font-size: 1.2rem;
+                color: var(--forest);
+                font-weight: 600;
+                border-bottom: 1px solid var(--border) !important;
+                padding-bottom: 0.6rem !important;
+                margin-bottom: 0.2rem;
+            }
+            .allocation-table td[data-label="Area"]::before { display: none; }
+            .allocation-table td[data-label="Area Total"] {
+                font-weight: 700;
+                color: var(--forest);
+                border-top: 1px solid var(--border) !important;
+                border-bottom: none !important;
+                padding-top: 0.6rem !important;
+                margin-top: 0.2rem;
+            }
+            .allocation-table tr.totals-row td[data-label="Area"] { color: var(--stone); }
+        }
         .plant-chip {
             display: inline-flex;
             align-items: center;
@@ -1089,8 +1143,8 @@
 <th style="text-align:right">Area Total</th>
 </tr></thead>
 <tbody>
-<tr><td>South Bed</td><td class="count">—</td><td class="count">15</td><td class="count">—</td><td class="count">—</td><td class="count">15</td></tr><tr><td>West Bed</td><td class="count">—</td><td class="count">15</td><td class="count">—</td><td class="count">10</td><td class="count">25</td></tr><tr><td>Porch Pocket</td><td class="count">—</td><td class="count">10</td><td class="count">—</td><td class="count">—</td><td class="count">10</td></tr><tr><td>Stoop Garden</td><td class="count">—</td><td class="count">10</td><td class="count">—</td><td class="count">8</td><td class="count">18</td></tr><tr><td>Septic Lawn</td><td class="count">15</td><td class="count">30</td><td class="count">20</td><td class="count">20</td><td class="count">85</td></tr><tr><td>Meadow Edge</td><td class="count">15</td><td class="count">30</td><td class="count">—</td><td class="count">15</td><td class="count">60</td></tr><tr><td>West Edge – Sun</td><td class="count">10</td><td class="count">20</td><td class="count">30</td><td class="count">15</td><td class="count">75</td></tr><tr><td>South Edge</td><td class="count">20</td><td class="count">60</td><td class="count">—</td><td class="count">20</td><td class="count">100</td></tr><tr><td>East Edge</td><td class="count">15</td><td class="count">40</td><td class="count">—</td><td class="count">12</td><td class="count">67</td></tr><tr><td>Flex / Backup Stock</td><td class="count">25</td><td class="count">20</td><td class="count">—</td><td class="count">—</td><td class="count">45</td></tr>
-<tr><td>Total</td><td class="count">100</td><td class="count">250</td><td class="count">50</td><td class="count">100</td><td class="count">500</td></tr>
+<tr><td data-label="Area">South Bed</td><td class="count" data-label="Mountain Mint">—</td><td class="count" data-label="Aromatic Aster">15</td><td class="count" data-label="Swamp Milkweed">—</td><td class="count" data-label="Wild Bergamot">—</td><td class="count" data-label="Area Total">15</td></tr><tr><td data-label="Area">West Bed</td><td class="count" data-label="Mountain Mint">—</td><td class="count" data-label="Aromatic Aster">15</td><td class="count" data-label="Swamp Milkweed">—</td><td class="count" data-label="Wild Bergamot">10</td><td class="count" data-label="Area Total">25</td></tr><tr><td data-label="Area">Porch Pocket</td><td class="count" data-label="Mountain Mint">—</td><td class="count" data-label="Aromatic Aster">10</td><td class="count" data-label="Swamp Milkweed">—</td><td class="count" data-label="Wild Bergamot">—</td><td class="count" data-label="Area Total">10</td></tr><tr><td data-label="Area">Stoop Garden</td><td class="count" data-label="Mountain Mint">—</td><td class="count" data-label="Aromatic Aster">10</td><td class="count" data-label="Swamp Milkweed">—</td><td class="count" data-label="Wild Bergamot">8</td><td class="count" data-label="Area Total">18</td></tr><tr><td data-label="Area">Septic Lawn</td><td class="count" data-label="Mountain Mint">15</td><td class="count" data-label="Aromatic Aster">30</td><td class="count" data-label="Swamp Milkweed">20</td><td class="count" data-label="Wild Bergamot">20</td><td class="count" data-label="Area Total">85</td></tr><tr><td data-label="Area">Meadow Edge</td><td class="count" data-label="Mountain Mint">15</td><td class="count" data-label="Aromatic Aster">30</td><td class="count" data-label="Swamp Milkweed">—</td><td class="count" data-label="Wild Bergamot">15</td><td class="count" data-label="Area Total">60</td></tr><tr><td data-label="Area">West Edge – Sun</td><td class="count" data-label="Mountain Mint">10</td><td class="count" data-label="Aromatic Aster">20</td><td class="count" data-label="Swamp Milkweed">30</td><td class="count" data-label="Wild Bergamot">15</td><td class="count" data-label="Area Total">75</td></tr><tr><td data-label="Area">South Edge</td><td class="count" data-label="Mountain Mint">20</td><td class="count" data-label="Aromatic Aster">60</td><td class="count" data-label="Swamp Milkweed">—</td><td class="count" data-label="Wild Bergamot">20</td><td class="count" data-label="Area Total">100</td></tr><tr><td data-label="Area">East Edge</td><td class="count" data-label="Mountain Mint">15</td><td class="count" data-label="Aromatic Aster">40</td><td class="count" data-label="Swamp Milkweed">—</td><td class="count" data-label="Wild Bergamot">12</td><td class="count" data-label="Area Total">67</td></tr><tr><td data-label="Area">Flex / Backup Stock</td><td class="count" data-label="Mountain Mint">25</td><td class="count" data-label="Aromatic Aster">20</td><td class="count" data-label="Swamp Milkweed">—</td><td class="count" data-label="Wild Bergamot">—</td><td class="count" data-label="Area Total">45</td></tr>
+<tr class="totals-row"><td data-label="Area">Total</td><td class="count" data-label="Mountain Mint">100</td><td class="count" data-label="Aromatic Aster">250</td><td class="count" data-label="Swamp Milkweed">50</td><td class="count" data-label="Wild Bergamot">100</td><td class="count" data-label="Area Total">500</td></tr>
 </tbody></table>
 
 <h2 class="category-title-phase">Around the House</h2>
