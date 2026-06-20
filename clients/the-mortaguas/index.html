@@ -55,7 +55,11 @@ header {
 header::before { content:''; position:absolute; inset:0;
     background: radial-gradient(ellipse at 30% 50%, rgba(122,140,110,0.18) 0%, transparent 60%), radial-gradient(ellipse at 70% 30%, rgba(196,169,125,0.10) 0%, transparent 50%); pointer-events:none; }
 .header-logo { display:flex; align-items:center; justify-content:center; gap:0.8rem; margin-bottom:1.4rem; position:relative; z-index:1; }
-.header-logo svg { width: 46px; height: 34px; opacity: 0.75; }
+.header-logo-svg { height:44px; width:auto; }
+.header-logo-svg .logo-trees { fill: rgba(245,240,232,0.95); }
+.header-logo-svg .logo-divider { stroke: rgba(245,240,232,0.45); }
+.header-logo-svg .logo-title { fill: var(--warm-cream); }
+.header-logo-svg .logo-subtitle { fill: rgba(245,240,232,0.85); }
 .header-brand { text-align:left; }
 .header-brand-name { font-size:0.78rem; font-weight:500; letter-spacing:2px; text-transform:uppercase; color:rgba(245,240,232,0.65); }
 .header-brand-sub { font-size:0.62rem; letter-spacing:1.5px; text-transform:uppercase; color:rgba(245,240,232,0.4); }
@@ -67,6 +71,25 @@ header p.subtitle { font-size: 0.92rem; letter-spacing: 0.5px; color: rgba(245,2
 .container { max-width: 1080px; margin: 0 auto; padding: 3rem 1.5rem 2rem; }
 .intro { max-width: 720px; margin: 0 auto 2.5rem; text-align:center; color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7; }
 .intro strong { color: var(--forest); font-weight: 600; }
+.start-photo { max-width:620px; margin:0 auto 1.5rem; }
+.start-photo img { width:100%; height:auto; display:block; border-radius:14px; box-shadow:0 4px 18px rgba(61,58,54,0.12); }
+.start-photo figcaption { text-align:center; font-size:0.82rem; color:var(--text-light); margin-top:0.6rem; font-style:italic; }
+.start-copy { max-width:660px; margin:0 auto; color:var(--text-secondary); font-size:1.06rem; line-height:1.7; }
+.start-copy p { margin-bottom:0.9rem; } .start-copy p:last-child { margin-bottom:0; }
+.proj-grid { display:grid; grid-template-columns:1.1fr 1fr; gap:2.2rem; align-items:start; margin-top:1.6rem; }
+.proj-photo { margin:0; }
+.proj-photo img { width:100%; height:auto; display:block; border-radius:12px; box-shadow:0 4px 18px rgba(61,58,54,0.12); }
+.proj-photo figcaption { font-size:0.8rem; color:var(--text-light); margin-top:0.55rem; font-style:italic; }
+.proj-brief { display:flex; flex-direction:column; gap:1.5rem; }
+.brief-label { font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--sage-dark); font-weight:600; margin-bottom:0.55rem; }
+.brief-block p { color:var(--text-secondary); font-size:0.97rem; line-height:1.6; margin-bottom:0.6rem; }
+.brief-block p:last-child { margin-bottom:0; }
+.cond-inline { justify-content:flex-start; margin:0; max-width:none; }
+.approach-list { list-style:none; margin:0; padding:0; }
+.approach-list li { position:relative; padding-left:1.6rem; font-size:0.94rem; line-height:1.5; color:var(--text-secondary); margin-bottom:0.6rem; }
+.approach-list li:last-child { margin-bottom:0; }
+.approach-list li::before { content:"✓"; position:absolute; left:0; top:-1px; color:var(--sage); font-weight:700; font-size:0.95rem; }
+@media (max-width:760px){ .proj-grid { grid-template-columns:1fr; gap:1.4rem; } }
 
 section.block { margin-bottom: 3.5rem; }
 .eyebrow { text-align:center; font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color: var(--sage-dark); margin-bottom: 0.5rem; }
@@ -171,6 +194,14 @@ section.block { margin-bottom: 3.5rem; }
 .illo-season { font-family:var(--font-serif); font-size:1.5rem; color:var(--forest); margin-bottom:0.3rem; }
 .illo-desc { font-size:0.9rem; color:var(--text-secondary); line-height:1.5; }
 .illo-desc .blooms { color:var(--forest); font-weight:600; }
+.bloom-label { font-size:0.67rem; letter-spacing:0.09em; text-transform:uppercase; color:var(--sage-dark); font-weight:600; margin-top:0.9rem; }
+.bloom-list { list-style:none; margin:0.5rem 0 0; padding:0; }
+.bloom-list li { display:flex; align-items:baseline; gap:0.5rem; font-size:0.83rem; margin-bottom:0.4rem; line-height:1.4; }
+.bloom-list li:last-child { margin-bottom:0; }
+.bloom-list .bdot { width:9px; height:9px; border-radius:50%; flex-shrink:0; align-self:center; box-shadow:0 0 0 1px rgba(61,58,54,0.12); }
+.bloom-list b { font-weight:600; color:var(--text-primary); }
+.bloom-list .bd { color:var(--text-light); font-size:0.78rem; }
+.card-note { font-size:0.76rem; color:var(--text-light); margin-top:0.75rem; line-height:1.45; }
 
 /* SEASONAL VIEW (tabs) */
 .seasonal-view { background:var(--white); border:1px solid var(--border); border-radius:14px; padding:1.4rem 1.4rem 1.6rem; box-shadow:0 1px 3px rgba(61,58,54,0.05); max-width:880px; margin:0 auto; }
@@ -250,8 +281,47 @@ footer .brand { font-family:var(--font-serif); font-size:1.2rem; color:var(--for
 <body>
 <header>
 <div class="header-logo">
-<svg viewBox="0 0 50 36" xmlns="http://www.w3.org/2000/svg"><g fill="rgba(245,240,232,0.9)"><path d="M22 30 L26 30 L26 36 L22 36 Z"/><path d="M24 2 C22 9,17 14,11 19 C16 19,21 17,24 14 C27 17,32 19,37 19 C31 14,26 9,24 2Z"/><path d="M24 13 C21 20,14 26,5 31 C13 31,20 28,24 24 C28 28,35 31,43 31 C34 26,27 20,24 13Z"/></g></svg>
-<div class="header-brand"><div class="header-brand-name">Polk Valley</div><div class="header-brand-sub">Habitat Design</div></div>
+<svg class="header-logo-svg" viewBox="0 0 161 30" xmlns="http://www.w3.org/2000/svg">
+                    <g class="logo-trees">
+                        <g opacity="0.25" transform="scale(0.15,0.15)">
+                            <g transform="translate(-20, 60) scale(0.42)"><path d="M150 250 L170 250 L170 390 L150 390 Z"/><path d="M160 30 C152 54,141 68,126 82 C138 80,149 75,160 64 C171 75,182 80,194 82 C179 68,168 54,160 30Z"/><path d="M160 78 C145 104,122 120,96 136 C116 137,140 131,160 114 C177 129,205 139,228 138 C201 121,178 104,160 78Z"/><path d="M160 118 C142 146,112 166,76 186 C104 187,135 178,160 158 C184 178,220 191,252 188 C217 168,187 147,160 118Z"/><path d="M160 162 C141 194,103 220,56 244 C92 244,130 233,160 211 C186 234,232 248,272 245 C228 221,191 195,160 162Z"/><path d="M160 210 C142 244,98 274,36 304 C84 303,126 289,160 263 C188 289,242 306,290 301 C238 274,194 244,160 210Z"/></g>
+                        </g>
+                        <g transform="scale(0.15,0.15)">
+                            <g transform="translate(55, -5) scale(0.52)"><path d="M150 250 L170 250 L170 390 L150 390 Z"/><path d="M160 30 C152 54,141 68,126 82 C138 80,149 75,160 64 C171 75,182 80,194 82 C179 68,168 54,160 30Z"/><path d="M160 78 C145 104,122 120,96 136 C116 137,140 131,160 114 C177 129,205 139,228 138 C201 121,178 104,160 78Z"/><path d="M160 118 C142 146,112 166,76 186 C104 187,135 178,160 158 C184 178,220 191,252 188 C217 168,187 147,160 118Z"/><path d="M160 162 C141 194,103 220,56 244 C92 244,130 233,160 211 C186 234,232 248,272 245 C228 221,191 195,160 162Z"/><path d="M160 210 C142 244,98 274,36 304 C84 303,126 289,160 263 C188 289,242 306,290 301 C238 274,194 244,160 210Z"/></g>
+                        </g>
+                        <g opacity="0.4" transform="scale(0.15,0.15)">
+                            <g transform="translate(140, 38) scale(0.45)"><path d="M150 250 L170 250 L170 390 L150 390 Z"/><path d="M160 30 C152 54,141 68,126 82 C138 80,149 75,160 64 C171 75,182 80,194 82 C179 68,168 54,160 30Z"/><path d="M160 78 C145 104,122 120,96 136 C116 137,140 131,160 114 C177 129,205 139,228 138 C201 121,178 104,160 78Z"/><path d="M160 118 C142 146,112 166,76 186 C104 187,135 178,160 158 C184 178,220 191,252 188 C217 168,187 147,160 118Z"/><path d="M160 162 C141 194,103 220,56 244 C92 244,130 233,160 211 C186 234,232 248,272 245 C228 221,191 195,160 162Z"/><path d="M160 210 C142 244,98 274,36 304 C84 303,126 289,160 263 C188 289,242 306,290 301 C238 274,194 244,160 210Z"/></g>
+                        </g>
+                    </g>
+                    <line class="logo-divider" x1="55" y1="3" x2="55" y2="27" stroke-width="1"/>
+                    <g class="logo-title">
+                        <path d="M200 85Q200 55 207.5 39.5Q215 24 239.0 18.0Q263 12 311 12Q314 12 314.0 6.0Q314 0 311 0Q279 0 241.5 1.0Q204 2 160 2Q127 2 95.5 1.0Q64 0 39 0Q37 0 37.0 6.0Q37 12 39 12Q74 12 91.5 17.0Q109 22 114.5 37.0Q120 52 120 81V544Q120 573 114.5 587.5Q109 602 91.5 607.5Q74 613 39 613Q37 613 37.0 619.0Q37 625 39 625Q64 625 95.0 623.5Q126 622 159 622Q185 622 222.5 625.0Q260 628 298 628Q356 628 402.5 611.0Q449 594 477.0 558.0Q505 522 506 464Q506 412 487.0 374.0Q468 336 435.5 311.0Q403 286 363.5 274.0Q324 262 286 262Q274 262 261.5 263.0Q249 264 238 267Q234 268 236 275Q237 280 239 280Q239 280 240 280Q249 278 258.5 277.0Q268 276 275 276Q313 276 345.0 294.0Q377 312 397.0 349.5Q417 387 417 443Q417 497 398.5 534.0Q380 571 347.0 591.0Q314 611 271 611Q243 611 227.5 607.0Q212 603 206.0 588.0Q200 573 200 542Z" transform="translate(65.00,13.00) scale(0.017,-0.017)"/>
+                        <path d="M233 -13Q172 -13 127.5 16.0Q83 45 59.0 93.5Q35 142 35 198Q35 250 54.5 288.0Q74 326 106.0 350.5Q138 375 176.0 387.0Q214 399 251 399Q313 399 357.0 369.0Q401 339 424.5 292.0Q448 245 448 193Q448 130 418.0 83.5Q388 37 339.5 12.0Q291 -13 233 -13ZM262 6Q311 6 338.5 44.5Q366 83 366 162Q366 229 346.0 277.5Q326 326 292.5 352.5Q259 379 217 379Q168 379 141.5 341.5Q115 304 115 231Q115 168 134.0 116.5Q153 65 186.0 35.5Q219 6 262 6Z" transform="translate(74.08,13.00) scale(0.017,-0.017)"/>
+                        <path d="M38 0Q36 0 36.0 6.0Q36 12 38 12Q75 12 86.5 25.5Q98 39 98 81L99 595Q99 630 92.5 646.0Q86 662 68 662Q53 662 25 649Q24 648 23 649Q20 649 19 653Q17 658 18 659Q18 660 19 660L153 724Q155 725 157 725Q160 725 164.5 722.0Q169 719 169 715V81Q169 40 180.0 26.0Q191 12 228 12Q232 12 232.0 6.0Q232 0 228 0Q210 0 185.5 1.0Q161 2 133 2Q106 2 81.5 1.0Q57 0 38 0Z" transform="translate(82.07,13.00) scale(0.017,-0.017)"/>
+                        <path d="M24 0Q22 0 22.0 6.0Q22 12 24 12Q61 12 72.5 25.5Q84 39 84 81V595Q84 630 77.5 646.0Q71 662 54 662Q39 662 10 649Q9 649 9 649Q6 649 4 653Q2 658 3 659Q3 660 4 660L136 724Q139 725 141 725Q144 725 148.0 722.0Q152 719 152 715V198L274 302Q309 331 303.0 352.5Q297 374 252 374Q250 374 250.0 380.0Q250 386 252 386Q277 386 302.0 385.0Q327 384 370 384Q409 384 432.0 385.0Q455 386 476 386Q478 386 478.0 380.0Q478 374 476 374Q452 374 422.0 366.5Q392 359 359.5 342.0Q327 325 295 298L244 256L374 81Q402 43 430.5 27.5Q459 12 488 12Q490 12 490.0 6.0Q490 0 488 0Q469 0 445.0 1.0Q421 2 393 2Q355 2 327.0 1.0Q299 0 276 0Q273 0 273.0 6.0Q273 12 276 12Q309 12 318.0 22.5Q327 33 313 53L192 214L152 181V81Q152 39 164.0 25.5Q176 12 213 12Q216 12 216.0 6.0Q216 0 213 0Q194 0 170.0 1.0Q146 2 119.0 2.0Q92 2 67.5 1.0Q43 0 24 0Z" transform="translate(86.30,13.00) scale(0.017,-0.017)"/>
+                        <path d="M668 625Q671 625 671.0 619.0Q671 613 668 613Q634 613 606.5 591.5Q579 570 560 522L356 1Q355 -3 345.5 -3.0Q336 -3 334 1L83 542Q66 579 47.5 596.0Q29 613 1 613Q-2 613 -2.0 619.0Q-2 625 1 625Q14 625 25.0 624.0Q36 623 49.0 622.5Q62 622 81 622Q119 622 146.0 622.5Q173 623 192.0 624.0Q211 625 226 625Q229 625 229.0 619.0Q229 613 226 613Q186 613 171.0 595.5Q156 578 174 539L372 109L536 527Q552 568 536.5 590.5Q521 613 468 613Q465 613 465.0 619.0Q465 625 468 625Q494 625 517.5 623.5Q541 622 579 622Q608 622 625.5 623.5Q643 625 668 625Z" transform="translate(98.22,13.00) scale(0.017,-0.017)"/>
+                        <path d="M316 -6Q312 -8 307 -8Q292 -8 279 15Q269 30 266 56L217 24Q194 7 174.5 0.0Q155 -7 132 -7Q92 -7 71.5 13.0Q51 33 51 63Q51 87 64.0 103.5Q77 120 101.5 133.0Q126 146 161 159L265 197V262Q265 324 249.5 350.5Q234 377 207 377Q182 377 167.0 363.5Q152 350 145.5 332.5Q139 315 136 300Q134 281 124.5 268.0Q115 255 93 255Q73 255 64.0 265.0Q55 275 55 287Q55 308 74.5 327.0Q94 346 124.0 362.0Q154 378 186.5 387.0Q219 396 245 396Q286 396 309.5 369.5Q333 343 333 292V108Q333 75 342.0 59.0Q351 43 371 43Q388 43 415 54Q416 55 418 54Q420 54 422 51Q423 47 422 45Q421 44 419 43ZM265 72Q265 75 265 79V183L187 151Q172 145 159.5 137.0Q147 129 139.0 117.5Q131 106 131 90Q131 66 147.0 50.5Q163 35 186 35Q195 35 205.0 38.0Q215 41 229 49Z" transform="translate(109.30,13.00) scale(0.017,-0.017)"/>
+                        <path d="M38 0Q36 0 36.0 6.0Q36 12 38 12Q75 12 86.5 25.5Q98 39 98 81L99 595Q99 630 92.5 646.0Q86 662 68 662Q53 662 25 649Q24 648 23 649Q20 649 19 653Q17 658 18 659Q18 660 19 660L153 724Q155 725 157 725Q160 725 164.5 722.0Q169 719 169 715V81Q169 40 180.0 26.0Q191 12 228 12Q232 12 232.0 6.0Q232 0 228 0Q210 0 185.5 1.0Q161 2 133 2Q106 2 81.5 1.0Q57 0 38 0Z" transform="translate(116.24,13.00) scale(0.017,-0.017)"/>
+                        <path d="M38 0Q36 0 36.0 6.0Q36 12 38 12Q75 12 86.5 25.5Q98 39 98 81L99 595Q99 630 92.5 646.0Q86 662 68 662Q53 662 25 649Q24 648 23 649Q20 649 19 653Q17 658 18 659Q18 660 19 660L153 724Q155 725 157 725Q160 725 164.5 722.0Q169 719 169 715V81Q169 40 180.0 26.0Q191 12 228 12Q232 12 232.0 6.0Q232 0 228 0Q210 0 185.5 1.0Q161 2 133 2Q106 2 81.5 1.0Q57 0 38 0Z" transform="translate(120.47,13.00) scale(0.017,-0.017)"/>
+                        <path d="M224 -12Q162 -12 120.0 15.5Q78 43 56.5 87.0Q35 131 35 181Q35 241 63.5 289.5Q92 338 141.0 366.5Q190 395 250 395Q308 395 339.5 366.0Q371 337 371 281Q371 268 368.5 260.5Q366 253 359 253H312L114 252Q112 237 112 220Q112 163 130.0 119.5Q148 76 183.0 52.0Q218 28 268 28Q301 28 322.5 37.0Q344 46 367 59Q367 59 368 60Q370 60 373 57Q376 52 374 49Q338 16 301.0 2.0Q264 -12 224 -12ZM291 271Q291 318 275 344Q255 375 216 375Q167 375 140 333Q122 306 116 267Z" transform="translate(124.70,13.00) scale(0.017,-0.017)"/>
+                        <path d="M434 386Q437 386 437.0 380.0Q437 374 434 374Q406 374 386.5 353.0Q367 332 351 288L232 -28Q196 -124 163.0 -179.5Q130 -235 95.0 -258.0Q60 -281 18 -281Q-5 -281 -20.5 -270.5Q-36 -260 -36 -239Q-36 -221 -25.0 -212.5Q-14 -204 0 -204Q19 -204 29 -210L49 -222Q59 -228 75 -228Q99 -228 121.0 -206.0Q143 -184 168 -131Q190 -86 218 -10L63 303Q41 347 28.5 360.5Q16 374 -2 374Q-5 374 -5.0 380.0Q-5 386 -2 386Q15 386 34.0 385.0Q53 384 70 384Q104 384 129.5 385.0Q155 386 176 386Q178 386 178.0 380.0Q178 374 176 374Q143 374 128.5 366.0Q114 358 125 335L253 74L327 286Q343 332 327.5 353.0Q312 374 263 374Q261 374 261.0 380.0Q261 386 263 386Q287 386 308.5 385.0Q330 384 364 384Q386 384 400.5 385.0Q415 386 434 386Z" transform="translate(131.49,13.00) scale(0.017,-0.017)"/>
+                    </g>
+                    <g class="logo-subtitle">
+                        <path d="M165 0V1490H393V860H1131V1490H1360V0H1131V664H393V0Z" transform="translate(65.00,26.00) scale(0.004395,-0.004395)"/>
+                        <path d="M51 0 581 1490H861L1401 0H1154L1017 393H431L298 0ZM950 583 864 829Q830 930 790 1067Q758 1173 720 1311Q682 1171 651 1064Q610 925 579 829L496 583Z" transform="translate(73.14,26.00) scale(0.004395,-0.004395)"/>
+                        <path d="M165 0V1490H714Q873 1490 977.0 1438.0Q1081 1386 1132.0 1297.5Q1183 1209 1183 1099Q1183 1006 1149.0 942.5Q1115 879 1057.5 840.5Q1000 802 931 784V769Q1006 766 1077.0 721.5Q1148 677 1194.5 596.5Q1241 516 1241 401Q1241 288 1187.5 197.0Q1134 106 1023.0 53.0Q912 0 738 0ZM393 196H715Q875 196 945.0 258.0Q1015 320 1015 412Q1015 484 979.5 542.0Q944 600 879.0 634.5Q814 669 724 669H393ZM393 845H692Q767 845 828.0 874.0Q889 903 924.0 956.0Q959 1009 959 1080Q959 1172 895.0 1233.5Q831 1295 698 1295H393Z" transform="translate(80.96,26.00) scale(0.004395,-0.004395)"/>
+                        <path d="M393 1490V0H165V1490Z" transform="translate(88.31,26.00) scale(0.004395,-0.004395)"/>
+                        <path d="M90 1294V1490H1247V1294H784V0H555V1294Z" transform="translate(92.21,26.00) scale(0.004395,-0.004395)"/>
+                        <path d="M51 0 581 1490H861L1401 0H1154L1017 393H431L298 0ZM950 583 864 829Q830 930 790 1067Q758 1173 720 1311Q682 1171 651 1064Q610 925 579 829L496 583Z" transform="translate(99.52,26.00) scale(0.004395,-0.004395)"/>
+                        <path d="M90 1294V1490H1247V1294H784V0H555V1294Z" transform="translate(107.34,26.00) scale(0.004395,-0.004395)"/>
+                        <path d="M649 0H165V1490H664Q884 1490 1041.0 1401.0Q1198 1312 1282.0 1145.5Q1366 979 1366 747Q1366 514 1281.5 347.0Q1197 180 1036.5 90.0Q876 0 649 0ZM393 200H637Q806 200 918.0 263.0Q1030 326 1086.0 448.5Q1142 571 1142 747Q1142 922 1086.5 1043.0Q1031 1164 921.5 1227.0Q812 1290 649 1290H393Z" transform="translate(118.50,26.00) scale(0.004395,-0.004395)"/>
+                        <path d="M165 0V1490H1103V1294H393V850H1052V655H393V196H1109V0Z" transform="translate(126.43,26.00) scale(0.004395,-0.004395)"/>
+                        <path d="M665 -25Q498 -25 375.0 28.0Q252 81 182.5 179.5Q113 278 106 414H335Q342 333 387.5 280.0Q433 227 506.0 201.0Q579 175 664 175Q759 175 832.5 204.5Q906 234 949.0 288.5Q992 343 992 415Q992 480 954.5 521.5Q917 563 853.5 590.5Q790 618 709 639L535 687Q352 736 249.5 832.0Q147 928 147 1081Q147 1210 216.5 1306.5Q286 1403 405.5 1456.5Q525 1510 675 1510Q828 1510 944.5 1456.5Q1061 1403 1127.5 1310.0Q1194 1217 1197 1098H975Q964 1200 880.5 1256.0Q797 1312 670 1312Q580 1312 513.5 1284.0Q447 1256 410.5 1206.5Q374 1157 374 1094Q374 1023 417.5 979.5Q461 936 523.5 910.5Q586 885 643 870L788 832Q859 814 934.5 783.5Q1010 753 1074.0 704.5Q1138 656 1177.5 584.5Q1217 513 1217 412Q1217 286 1152.0 187.0Q1087 88 963.5 31.5Q840 -25 665 -25Z" transform="translate(133.30,26.00) scale(0.004395,-0.004395)"/>
+                        <path d="M393 1490V0H165V1490Z" transform="translate(140.55,26.00) scale(0.004395,-0.004395)"/>
+                        <path d="M791 -20Q589 -20 436.5 73.0Q284 166 198.5 337.5Q113 509 113 744Q113 982 199.5 1153.5Q286 1325 437.0 1417.5Q588 1510 781 1510Q901 1510 1005.5 1474.5Q1110 1439 1192.5 1373.5Q1275 1308 1328.5 1217.5Q1382 1127 1400 1019H1166Q1146 1084 1111.0 1136.5Q1076 1189 1027.5 1226.0Q979 1263 917.5 1282.5Q856 1302 783 1302Q657 1302 556.5 1238.0Q456 1174 397.5 1049.5Q339 925 339.0 745.0Q339 565 397.5 441.0Q456 317 558.0 252.5Q660 188 792 188Q912 188 1001.5 236.5Q1091 285 1141 375Q1188 460 1190 576H825V764H1413V593Q1413 405 1332.5 267.5Q1252 130 1112.0 55.0Q972 -20 791 -20Z" transform="translate(144.45,26.00) scale(0.004395,-0.004395)"/>
+                        <path d="M165 0V1490H428L989 603Q1017 559 1052.0 498.0Q1087 437 1126 361Q1147 320 1167 275Q1164 319 1162 363Q1157 446 1155.0 519.0Q1153 592 1153 642V1490H1384V0H1120L617 793Q577 858 538.5 924.0Q500 990 454 1077Q421 1136 379 1214Q383 1145 386 1082Q391 986 393.5 912.5Q396 839 396 795V0Z" transform="translate(152.61,26.00) scale(0.004395,-0.004395)"/>
+                    </g>
+                </svg>
 </div>
 <h1>The <em>Mortaguas</em></h1>
 <p class="subtitle">Southwest Corner Pollinator Bed</p>
@@ -259,23 +329,49 @@ footer .brand { font-family:var(--font-serif); font-size:1.2rem; color:var(--for
 </header>
 
 <div class="container">
-<p class="intro">
-A native pollinator bed for the sunny <strong>southwest corner</strong> of your fenced yard — designed for
-<strong>continuous bloom from spring through fall</strong> and built around <strong>monarch host plants</strong>
-so the family can watch caterpillars and chrysalises all season. Here's the plan, season by season.
-</p>
+<section class="block start-section">
+<div class="eyebrow">The project</div>
+<h2 class="section-title">A pollinator bed for the southwest corner</h2>
+<div class="proj-grid">
+<figure class="proj-photo">
+<img src="corner_start.jpg" alt="The southwest corner of the backyard today — empty lawn, full sun, already fenced"/>
+<figcaption>The starting point — an empty corner, full sun, already fenced.</figcaption>
+</figure>
+<div class="proj-brief">
+<div class="brief-block">
+<div class="brief-label">The brief</div>
+<p>Right now it's just an empty corner of the backyard — full sun, already fenced, doing nothing.</p>
+<p>The plan is a small native flower bed that pulls in pollinators and keeps color coming from spring through fall.</p>
+<p>The neighborhood runs neat and traditional — clipped boxwoods, barberry, tidy shrubs. So this bed is built to fit right in: a crisp edge and mulch between the plants, just swapping the evergreen shrubs for waves of native color.</p>
+</div>
+<div class="brief-block">
+<div class="brief-label">The site</div>
+<div class="conditions cond-inline">
+<div class="condition"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="5" fill="#FFD966" stroke="#D4A017" stroke-width="1.5"/><g stroke="#D4A017" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="23"/><line x1="1" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="23" y2="12"/><line x1="4.2" y1="4.2" x2="6.3" y2="6.3"/><line x1="17.7" y1="17.7" x2="19.8" y2="19.8"/><line x1="4.2" y1="19.8" x2="6.3" y2="17.7"/><line x1="17.7" y1="6.3" x2="19.8" y2="4.2"/></g></svg><span><strong>Full sun</strong> · SW exposure</span></div>
+<div class="condition"><svg viewBox="0 0 24 24" fill="none"><ellipse cx="12" cy="16" rx="8" ry="4" fill="#C8A882" stroke="#7A5C3C" stroke-width="1.2"/><path d="M5 13c0-1 3-2 7-2s7 1 7 2" stroke="#7A5C3C" stroke-width="1"/></svg><span><strong>Clay</strong> · loosen, don't enrich</span></div>
+<div class="condition"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 6 10 6 14.5a6 6 0 0012 0C18 10 12 2 12 2z" fill="#A8D5E2" stroke="#4A90D9" stroke-width="1.5"/></svg><span><strong>Medium</strong> moisture</span></div>
+<div class="condition"><svg viewBox="0 0 24 24" fill="none"><g stroke="#5e6d54" stroke-width="1.6" stroke-linecap="round"><line x1="3" y1="6" x2="3" y2="20"/><line x1="9" y1="6" x2="9" y2="20"/><line x1="15" y1="6" x2="15" y2="20"/><line x1="21" y1="6" x2="21" y2="20"/><line x1="2" y1="20" x2="22" y2="20"/><line x1="2" y1="10" x2="22" y2="10"/></g></svg><span><strong>Fenced</strong> · no deer worry</span></div>
+</div>
+</div>
+<div class="brief-block">
+<div class="brief-label">The approach</div>
+<ul class="approach-list">
+<li>Loosen the clay so roots and water can move — but skip the compost. These natives want lean-to-average soil; rich soil just makes them floppy.</li>
+<li>Butterfly weed gets a sharp-drained pocket; swamp milkweed takes the damp low spot — monarch hosts in both.</li>
+<li>Plant in drifts and keep a crisp mulched edge — clean and intentional, not wild.</li>
+<li>Leave stems and seedheads through winter for the birds; cut back in early spring.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
 
 
 <!-- PLANTING PLAN (tabbed: layout / order) -->
 <section class="block" id="planting-plan">
 <div class="eyebrow">The plan</div>
 <h2 class="section-title">Planting Plan</h2>
-<div class="plan-tabs">
-<button class="plan-tab active" onclick="showPlanTab(this,'layout')">🗺 Layout</button>
-<button class="plan-tab" onclick="showPlanTab(this,'order')">📋 Plant Order</button>
-</div>
 
-<div class="plan-panel" data-plan="layout">
 <p class="section-lead">A to-scale plan of the quarter-circle bed (~113 sq ft). Each circle is one plant at its on-center spacing (~19", even), tiered from tall plants against the fence down to low edgers at the lawn edge. 45 plants total.</p>
 <div class="present-wrap"><button class="present-btn" id="openStage">⛶ Open full view</button></div>
 <div class="diagram-wrap"><svg viewBox="0 0 1000 672" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, sans-serif">
@@ -361,117 +457,10 @@ so the family can watch caterpillars and chrysalises all season. Here's the plan
 <g class="legrow leg-aromatic-aster"><rect x="594" y="526" width="320" height="22" fill="transparent"/><circle cx="608" cy="537" r="8" fill="#9a6ac0" fill-opacity="0.62" stroke="#9a6ac0" stroke-width="1.2"/><text class="legname" x="624" y="542" font-size="14" fill="#2c2a26">Aromatic Aster <tspan fill="#999">×3</tspan></text></g>
 <text x="600" y="587" font-size="14" font-weight="700" fill="#3a4a32">TOTAL: 45 plants</text>
 </svg></div>
-</div>
 
-<div class="plan-panel" data-plan="order" style="display:none">
-<div class="order-wrap">
-<div class="order-summary">
-<div class="order-stat"><b>45</b><span>plants</span></div>
-<div class="order-stat"><b>$675</b><span>full bed (pre-tax)</span></div>
-<div class="order-stat"><b>$315</b><span>available now</span></div>
-</div>
-<table class="order-table">
-<thead><tr><th>Plant</th><th class="hide-sm">Item #</th><th class="hide-sm">Pot</th><th class="num">Qty</th><th class="num">Unit</th><th class="num">Total</th></tr></thead>
-<tbody>
-<tr class="order-grouprow"><td colspan="6">Available now · Edge of the Woods (confirmed $15 / #1 gallon)</td></tr>
-<tr><td><span class="pname">Eastern Red Columbine</span><br/><span class="psci">Aquilegia canadensis</span></td><td class="hide-sm">10789</td><td class="hide-sm">#1</td><td class="num">3</td><td class="num">$15</td><td class="num">$45</td></tr>
-<tr><td><span class="pname">Blue Wild Indigo</span><br/><span class="psci">Baptisia australis</span></td><td class="hide-sm">10844</td><td class="hide-sm">#1</td><td class="num">3</td><td class="num">$15</td><td class="num">$45</td></tr>
-<tr><td><span class="pname">Foxglove Beardtongue 'Husker Red'</span><br/><span class="psci">Penstemon digitalis</span></td><td class="hide-sm">10747</td><td class="hide-sm">#1</td><td class="num">2</td><td class="num">$15</td><td class="num">$30</td></tr>
-<tr><td><span class="pname">Wild Bergamot</span><br/><span class="psci">Monarda fistulosa</span></td><td class="hide-sm">10785</td><td class="hide-sm">#1</td><td class="num">2</td><td class="num">$15</td><td class="num">$30</td></tr>
-<tr><td><span class="pname">Purple Coneflower</span><br/><span class="psci">Echinacea purpurea</span></td><td class="hide-sm">11003</td><td class="hide-sm">#1</td><td class="num">2</td><td class="num">$15</td><td class="num">$30</td></tr>
-<tr><td><span class="pname">Garden Phlox 'Jeana'</span><br/><span class="psci">Phlox paniculata</span></td><td class="hide-sm">10823</td><td class="hide-sm">#1</td><td class="num">2</td><td class="num">$15</td><td class="num">$30</td></tr>
-<tr><td><span class="pname">Swamp Milkweed</span><br/><span class="psci">Asclepias incarnata</span></td><td class="hide-sm">10918</td><td class="hide-sm">#1</td><td class="num">2</td><td class="num">$15</td><td class="num">$30</td></tr>
-<tr><td><span class="pname">Virginia Mountain Mint *</span><br/><span class="psci">Pycnanthemum virginianum</span></td><td class="hide-sm">10987</td><td class="hide-sm">#1</td><td class="num">2</td><td class="num">$15</td><td class="num">$30</td></tr>
-<tr><td><span class="pname">Black-eyed Susan</span><br/><span class="psci">Rudbeckia fulgida</span></td><td class="hide-sm">10704</td><td class="hide-sm">#1</td><td class="num">3</td><td class="num">$15</td><td class="num">$45</td></tr>
-<tr class="order-subtotal"><td>Subtotal — available</td><td class="hide-sm"></td><td class="hide-sm"></td><td class="num">21</td><td class="num"></td><td class="num">$315</td></tr>
-<tr class="order-grouprow back"><td colspan="6">Not in stock now — source when restocked (qty &amp; price estimated)</td></tr>
-<tr><td><span class="pname">Butterfly Weed</span> <span class="crit">⚠ no clay</span><br/><span class="psci">Asclepias tuberosa</span></td><td class="hide-sm">—</td><td class="hide-sm">#1</td><td class="num">3</td><td class="num">$15</td><td class="num">$45</td></tr>
-<tr><td><span class="pname">Dense Blazing Star</span><br/><span class="psci">Liatris spicata</span></td><td class="hide-sm">—</td><td class="hide-sm">#1</td><td class="num">2</td><td class="num">$15</td><td class="num">$30</td></tr>
-<tr><td><span class="pname">Moss Phlox</span><br/><span class="psci">Phlox subulata</span></td><td class="hide-sm">—</td><td class="hide-sm">#1</td><td class="num">3</td><td class="num">$15</td><td class="num">$45</td></tr>
-<tr><td><span class="pname">Golden Alexanders</span><br/><span class="psci">Zizia aurea</span></td><td class="hide-sm">—</td><td class="hide-sm">#1</td><td class="num">3</td><td class="num">$15</td><td class="num">$45</td></tr>
-<tr><td><span class="pname">Wild Geranium</span><br/><span class="psci">Geranium maculatum</span></td><td class="hide-sm">—</td><td class="hide-sm">#1</td><td class="num">3</td><td class="num">$15</td><td class="num">$45</td></tr>
-<tr><td><span class="pname">New England Aster</span><br/><span class="psci">Symphyotrichum novae-angliae</span></td><td class="hide-sm">—</td><td class="hide-sm">#1</td><td class="num">2</td><td class="num">$15</td><td class="num">$30</td></tr>
-<tr><td><span class="pname">Aromatic Aster</span><br/><span class="psci">Symphyotrichum oblongifolium</span></td><td class="hide-sm">—</td><td class="hide-sm">#1</td><td class="num">3</td><td class="num">$15</td><td class="num">$45</td></tr>
-<tr><td><span class="pname">Smooth Blue Aster</span><br/><span class="psci">Symphyotrichum laeve</span></td><td class="hide-sm">—</td><td class="hide-sm">#1</td><td class="num">3</td><td class="num">$15</td><td class="num">$45</td></tr>
-<tr><td><span class="pname">Showy Goldenrod</span><br/><span class="psci">Solidago speciosa</span></td><td class="hide-sm">—</td><td class="hide-sm">#1</td><td class="num">2</td><td class="num">$15</td><td class="num">$30</td></tr>
-<tr class="order-subtotal"><td>Subtotal — backordered (est.)</td><td class="hide-sm"></td><td class="hide-sm"></td><td class="num">24</td><td class="num"></td><td class="num">$360</td></tr>
-<tr class="order-total"><td>Full bed — 18 species</td><td class="hide-sm"></td><td class="hide-sm"></td><td class="num">45</td><td class="num"></td><td class="num">$675</td></tr>
-</tbody>
-</table>
-<p class="order-note">All plants are #1 (1-gallon) established stock. Prices for the available section are confirmed from Edge of the Woods' 6/17/2026 availability; backordered prices are estimated at their standard $15/#1 and worth re-confirming. <b>*</b> Virginia Mountain Mint subs for Short-toothed (out of stock). Foxglove is the 'Husker Red' cultivar. Pre-tax — a PA resale certificate may apply for the install.</p>
-<div class="nursery-card">
-<div class="n-left">
-<img src="https://edgeofthewoodsnursery.com/wp-content/uploads/2017/04/cropped-logoWHITE.png" alt="Edge of the Woods Native Plant Nursery" onerror="this.style.display='none'"/>
-<div class="n-text">Pricing &amp; stock from <b>Edge of the Woods Native Plant Nursery</b> (Orefield, PA) — their availability changes often, so check the live list before ordering.</div>
-</div>
-<a class="nursery-btn" href="https://edgeofthewoodsnursery.com/our-plants-for-pollinators/availability" target="_blank" rel="noopener">View current availability →</a>
-</div>
-</div>
-</div>
 </section>
 
-<!-- CONDITIONS -->
-<section class="block">
-<div class="eyebrow">The site</div>
-<h2 class="section-title">Conditions</h2>
-<div class="conditions">
-<div class="condition"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="5" fill="#FFD966" stroke="#D4A017" stroke-width="1.5"/><g stroke="#D4A017" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="23"/><line x1="1" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="23" y2="12"/><line x1="4.2" y1="4.2" x2="6.3" y2="6.3"/><line x1="17.7" y1="17.7" x2="19.8" y2="19.8"/><line x1="4.2" y1="19.8" x2="6.3" y2="17.7"/><line x1="17.7" y1="6.3" x2="19.8" y2="4.2"/></g></svg><span><strong>Full sun</strong> · SW exposure</span></div>
-<div class="condition"><svg viewBox="0 0 24 24" fill="none"><ellipse cx="12" cy="16" rx="8" ry="4" fill="#C8A882" stroke="#7A5C3C" stroke-width="1.2"/><path d="M5 13c0-1 3-2 7-2s7 1 7 2" stroke="#7A5C3C" stroke-width="1"/></svg><span><strong>Clay</strong> · amend w/ compost</span></div>
-<div class="condition"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 6 10 6 14.5a6 6 0 0012 0C18 10 12 2 12 2z" fill="#A8D5E2" stroke="#4A90D9" stroke-width="1.5"/></svg><span><strong>Medium</strong> moisture</span></div>
-<div class="condition"><svg viewBox="0 0 24 24" fill="none"><g stroke="#5e6d54" stroke-width="1.6" stroke-linecap="round"><line x1="3" y1="6" x2="3" y2="20"/><line x1="9" y1="6" x2="9" y2="20"/><line x1="15" y1="6" x2="15" y2="20"/><line x1="21" y1="6" x2="21" y2="20"/><line x1="2" y1="20" x2="22" y2="20"/><line x1="2" y1="10" x2="22" y2="10"/></g></svg><span><strong>Fenced</strong> · no deer worry</span></div>
-</div>
-</section>
 
-<!-- SEASONAL BLOOM VIEW -->
-<section class="block">
-<div class="eyebrow">What's happening when</div>
-<h2 class="section-title">Bloom Through the Seasons</h2>
-<p class="section-lead">Tap a season to see what's in bloom, emerging, or going to seed across the whole bed.</p>
-<div class="seasonal-view">
-<div class="season-tabs">
-<button class="season-tab active" onclick="showSeason(this,'spring')">🌸 Spring</button>
-<button class="season-tab" onclick="showSeason(this,'summer')">☀️ Summer</button>
-<button class="season-tab" onclick="showSeason(this,'fall')">🍂 Fall</button>
-</div>
-<div class="season-panel" data-panel="spring">
-<div class="season-pill status-bloom"><span class="bloom-dot" style="background:#d64545"></span><span class="pill-name">Eastern Red Columbine</span><span class="pill-desc">red &amp; yellow, earliest</span></div>
-<div class="season-pill status-bloom"><span class="bloom-dot" style="background:#c084fc"></span><span class="pill-name">Moss Phlox</span><span class="pill-desc">low pink/lavender carpet</span></div>
-<div class="season-pill status-bloom"><span class="bloom-dot" style="background:#f4b942"></span><span class="pill-name">Golden Alexanders</span><span class="pill-desc">yellow umbels</span></div>
-<div class="season-pill status-bloom"><span class="bloom-dot" style="background:#d6618f"></span><span class="pill-name">Wild Geranium</span><span class="pill-desc">pink to lilac</span></div>
-<div class="season-pill status-bloom"><span class="bloom-dot" style="background:#5b8def"></span><span class="pill-name">Blue Wild Indigo</span><span class="pill-desc">blue spikes (late spring)</span></div>
-<div class="season-pill status-bloom"><span class="bloom-dot" style="background:#e5e7eb"></span><span class="pill-name">Foxglove Beardtongue</span><span class="pill-desc">white (late spring)</span></div>
-<div class="season-pill status-emerging"><span class="pill-name">Coneflower, bee balm, milkweeds…</span><span class="pill-desc">emerging</span></div>
-<div class="season-pill status-emerging"><span class="pill-name">Asters &amp; goldenrod</span><span class="pill-desc">low green mounds</span></div>
-</div>
-<div class="season-panel" data-panel="summer" style="display:none">
-<div class="season-pill status-bloom"><span class="bloom-dot" style="background:#e8743b"></span><span class="pill-name">Butterfly Weed</span><span class="pill-desc">orange, monarch host</span></div>
-<div class="season-pill status-bloom"><span class="bloom-dot" style="background:#d6618f"></span><span class="pill-name">Swamp Milkweed</span><span class="pill-desc">pink, monarch host</span></div>
-<div class="season-pill status-bloom"><span class="bloom-dot" style="background:#cf86b8"></span><span class="pill-name">Wild Bergamot</span><span class="pill-desc">lavender pom-poms</span></div>
-<div class="season-pill status-bloom"><span class="bloom-dot" style="background:#d6618f"></span><span class="pill-name">Purple Coneflower</span><span class="pill-desc">pink-purple daisies</span></div>
-<div class="season-pill status-bloom"><span class="bloom-dot" style="background:#7c3aed"></span><span class="pill-name">Dense Blazing Star</span><span class="pill-desc">purple spikes</span></div>
-<div class="season-pill status-bloom"><span class="bloom-dot" style="background:#d6618f"></span><span class="pill-name">Garden Phlox 'Jeana'</span><span class="pill-desc">pink panicles</span></div>
-<div class="season-pill status-bloom"><span class="bloom-dot" style="background:#e5e7eb"></span><span class="pill-name">Mountain Mint</span><span class="pill-desc">silvery, #1 pollinator</span></div>
-<div class="season-pill status-foliage"><span class="pill-name">Asters &amp; goldenrod</span><span class="pill-desc">bushy foliage</span></div>
-<div class="season-pill status-foliage"><span class="pill-name">Columbine, alexanders, geranium</span><span class="pill-desc">foliage</span></div>
-</div>
-<div class="season-panel" data-panel="fall" style="display:none">
-<div class="season-pill status-bloom"><span class="bloom-dot" style="background:#7c3aed"></span><span class="pill-name">New England Aster</span><span class="pill-desc">purple, pinched to ~4 ft</span></div>
-<div class="season-pill status-bloom"><span class="bloom-dot" style="background:#6d7fd6"></span><span class="pill-name">Smooth Blue Aster</span><span class="pill-desc">late blue, ~3 ft</span></div>
-<div class="season-pill status-bloom"><span class="bloom-dot" style="background:#9a6ac0"></span><span class="pill-name">Aromatic Aster</span><span class="pill-desc">low purple-blue mounds</span></div>
-<div class="season-pill status-bloom"><span class="bloom-dot" style="background:#f4b942"></span><span class="pill-name">Showy Goldenrod</span><span class="pill-desc">bright yellow plumes</span></div>
-<div class="season-pill status-bloom"><span class="bloom-dot" style="background:#f4b942"></span><span class="pill-name">Black-eyed Susan</span><span class="pill-desc">gold, dark centers</span></div>
-<div class="season-pill status-seed"><span class="pill-name">Coneflower &amp; bee balm</span><span class="pill-desc">seedheads for finches</span></div>
-<div class="season-pill status-seed"><span class="pill-name">Milkweeds</span><span class="pill-desc">pods &amp; silky seeds</span></div>
-<div class="season-pill status-dormant"><span class="pill-name">Spring bloomers</span><span class="pill-desc">died back</span></div>
-</div>
-<div class="legend">
-<span><i style="background:var(--sage-dark)"></i> In bloom</span>
-<span><i style="background:#b9c6ab"></i> Emerging</span>
-<span><i style="background:#cdbf9a"></i> Going to seed</span>
-<span>🦋 monarch host · ⭐ earliest</span>
-</div>
-</div>
-</section>
 
 <!-- PLANT PALETTE -->
 <section class="block">
@@ -517,42 +506,42 @@ so the family can watch caterpillars and chrysalises all season. Here's the plan
 </section>
 
 <!-- CARE NOTES -->
-<section class="block">
-<div class="eyebrow">Getting it right</div>
-<h2 class="section-title">Soil &amp; Care</h2>
-<div class="care">
-<p><strong>Amend the whole bed, not single holes.</strong> Clay holds water and compacts. Loosen the top 10–12" across the entire footprint and work in 3–4" of compost. Digging good soil into one hole in clay creates a "bathtub" that drowns roots.</p>
-<p><strong>One dry pocket for butterfly weed.</strong> It wants sharp drainage and resents wet clay — give it the highest, sandiest spot (add a little grit). Swamp milkweed goes in the lower, damper area instead, so monarchs get host plants in both zones.</p>
-<p><strong>Plant in drifts.</strong> Cluster each species in groups of 3–7 rather than dotting them around — it reads better and pollinators forage it more efficiently. Spacing roughly equals each plant's mature spread.</p>
-<p><strong>Best timing &amp; first-year care.</strong> Early fall or spring is ideal. Water deeply 1–2× per week until established. Leave stems and seedheads standing over winter — they feed birds and shelter native bees — then cut back in early spring. Check milkweed leaves for monarch caterpillars before any cleanup.</p>
-</div>
-</section>
+
 
 <!-- SEASONAL ILLUSTRATIONS -->
 <section class="block">
 <div class="eyebrow">Your corner, through the year</div>
 <h2 class="section-title">Spring · Summer · Fall</h2>
-<p class="section-lead">Illustrations of how the bed will fill in and bloom across the seasons — showing only the flowers actually in bloom at that time.</p>
+<p class="section-lead">How the bed fills in and blooms across the seasons — each render shows only what's actually in flower at that point, with the plant list right below it.</p>
 <div class="season-illos">
 <div class="illo-card">
 <img class="illo-img" src="spring.png" alt="The corner bed in spring" data-season="Spring" data-color="#e8b94a"/>
 <div class="illo-body">
 <div class="illo-season">🌸 Spring</div>
-<p class="illo-desc">Early color from <span class="blooms">columbine, moss phlox, golden alexanders, and wild geranium</span>, with blue wild indigo and beardtongue opening as spring turns to summer.</p>
+<p class="illo-desc">Fresh color as the bed wakes up — pinks, yellows, blue, and white.</p>
+<div class="bloom-label">In bloom</div>
+<ul class="bloom-list"><li><span class="bdot" style="background:#d64545"></span><b>Eastern Red Columbine</b> <span class="bd">red &amp; yellow, earliest</span></li><li><span class="bdot" style="background:#c084fc"></span><b>Moss Phlox</b> <span class="bd">low pink-lavender carpet</span></li><li><span class="bdot" style="background:#f4b942"></span><b>Golden Alexanders</b> <span class="bd">yellow umbels</span></li><li><span class="bdot" style="background:#d6618f"></span><b>Wild Geranium</b> <span class="bd">pink to lilac</span></li><li><span class="bdot" style="background:#5b8def"></span><b>Blue Wild Indigo</b> <span class="bd">blue spikes, late spring</span></li><li><span class="bdot" style="background:#e5e7eb"></span><b>Foxglove Beardtongue</b> <span class="bd">white, late spring</span></li></ul>
+<p class="card-note">Coneflower, bee balm, milkweeds and the asters are up as green growth — not yet flowering.</p>
 </div>
 </div>
 <div class="illo-card">
 <img class="illo-img" src="summer.png" alt="The corner bed in summer" data-season="Summer" data-color="#e8743b"/>
 <div class="illo-body">
 <div class="illo-season">☀️ Summer</div>
-<p class="illo-desc">Peak bloom — <span class="blooms">bee balm, purple coneflower, blazing star, garden phlox, both milkweeds, and mountain mint</span> in purples, pink, and orange. Prime monarch season.</p>
+<p class="illo-desc">Peak bloom and prime monarch season — purples, pink, and a pop of orange.</p>
+<div class="bloom-label">In bloom</div>
+<ul class="bloom-list"><li><span class="bdot" style="background:#e8743b"></span><b>Butterfly Weed</b> <span class="bd">orange · monarch host</span></li><li><span class="bdot" style="background:#d6618f"></span><b>Swamp Milkweed</b> <span class="bd">pink · monarch host</span></li><li><span class="bdot" style="background:#cf86b8"></span><b>Wild Bergamot</b> <span class="bd">lavender pom-poms</span></li><li><span class="bdot" style="background:#d6618f"></span><b>Purple Coneflower</b> <span class="bd">pink-purple daisies</span></li><li><span class="bdot" style="background:#7c3aed"></span><b>Dense Blazing Star</b> <span class="bd">purple spikes</span></li><li><span class="bdot" style="background:#d6618f"></span><b>Garden Phlox 'Jeana'</b> <span class="bd">pink panicles</span></li><li><span class="bdot" style="background:#e5e7eb"></span><b>Mountain Mint</b> <span class="bd">silvery · #1 pollinator</span></li></ul>
+<p class="card-note">The spring plants and the fall asters &amp; goldenrod are full, leafy foliage now.</p>
 </div>
 </div>
 <div class="illo-card">
 <img class="illo-img" src="fall.png" alt="The corner bed in fall" data-season="Fall" data-color="#9a6ac0"/>
 <div class="illo-body">
 <div class="illo-season">🍂 Fall</div>
-<p class="illo-desc">Late nectar from <span class="blooms">New England aster, smooth blue aster, aromatic aster, showy goldenrod, and black-eyed Susan</span> — purple, blue, and gold carrying color right to frost.</p>
+<p class="illo-desc">Purple, blue, and gold, carrying color right to frost.</p>
+<div class="bloom-label">In bloom</div>
+<ul class="bloom-list"><li><span class="bdot" style="background:#7c3aed"></span><b>New England Aster</b> <span class="bd">purple, ~4 ft</span></li><li><span class="bdot" style="background:#6d7fd6"></span><b>Smooth Blue Aster</b> <span class="bd">soft blue, ~3 ft</span></li><li><span class="bdot" style="background:#9a6ac0"></span><b>Aromatic Aster</b> <span class="bd">low purple-blue mounds</span></li><li><span class="bdot" style="background:#f4b942"></span><b>Showy Goldenrod</b> <span class="bd">bright yellow plumes</span></li><li><span class="bdot" style="background:#f4b942"></span><b>Black-eyed Susan</b> <span class="bd">gold, dark centers</span></li></ul>
+<p class="card-note">Coneflower, bee balm and milkweeds stand as seedheads for the birds; the spring plants have died back.</p>
 </div>
 </div>
 </div>
